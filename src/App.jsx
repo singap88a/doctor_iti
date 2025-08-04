@@ -6,7 +6,8 @@ import About from "./pages/About/About";
 import Timetable from "./pages/Timetable/Timetable";
 import Gallery from "./pages/Gallery/Gallery";
 import Contact from "./pages/Contact/Contact";
-
+import Appointments from "./pages/Appointments/Appointments";
+ 
 const App = () => {
   return (
     <div>
@@ -18,6 +19,7 @@ const App = () => {
                     <Route path="/timetable" element={<Timetable />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/appointments" element={<Appointments />} />
 
         </Routes>
       </div>
