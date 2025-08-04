@@ -1,4 +1,4 @@
- 
+
 import hero from "../../assets/img_about/about_hero.png";
 import Activities from "../../components/About_com/Activities";
 import Awards from "../../components/About_com/Awards";
