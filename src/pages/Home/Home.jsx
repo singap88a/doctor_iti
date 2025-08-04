@@ -25,7 +25,7 @@ function Home() {
      <Banner/>
      <Latest_Update/>
      <Appointment/>
-       <Brand/>
+      <Brand/>
    
     </div>
   )
