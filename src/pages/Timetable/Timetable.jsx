@@ -1,6 +1,6 @@
 import heroimg from "../../assets/img_doctors/hero_doctors.png";
 import Hero_about from "../../components/About_com/Hero_about";
-import appointmentData from "../Doctors/tracksDatagi"
+import appointmentData from "../Doctors/tracksData"
 const days = [
   "Monday",
   "Tuesday",
