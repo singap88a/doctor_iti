@@ -29,7 +29,7 @@
 }
 .butt:hover {
   background: linear-gradient(to right, #0c3663, #3e6e95);
- 
+
 }
 
 /* /////////gallery//////////// */
@@ -72,4 +72,13 @@
     -moz-column-width: 100%;
     column-width: 100%;
   }
+}
+.gallery {
+  transition: transform 0.3s ease-in-out;
+   transition: filter 0.3s;
+}
+
+.gallery .pics:hover {
+  cursor:auto;
+  transform: scale(1.05);
 }
