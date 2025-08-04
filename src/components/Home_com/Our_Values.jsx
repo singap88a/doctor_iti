@@ -32,7 +32,7 @@ function OurValues() {
       title: "Teamwork",
       description:
         "We collaborate with team members and healthcare professionals to provide comprehensive and effective care for our patients.",
-      image: Values_1,
+       image : Values_1,
     },
   ];
 
