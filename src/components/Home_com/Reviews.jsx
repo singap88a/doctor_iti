@@ -68,11 +68,11 @@ function Reviews() {
           </div>
 
           {/* Line with a small circle in the center */}
-          <div className="absolute top-1/2 transform -translate-y-1/2 hidden md:w-[1px] md:h-full md:bg-secondary sm:block">
+          <div className="absolute top-1/2 transform -translate-y-1/2 lg:block hidden md:w-[1px] md:h-full md:bg-secondary ">
             {/* Small circles on the line */}
-            <div className="absolute w-2 h-2 transform -translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary sm:left-1/2 sm:bottom-[13%] md:left-1/2 md:bottom-[13%]"></div>
-            <div className="absolute w-4 h-4 transform -translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary sm:left-1/2 sm:top-1/2 md:left-1/2 md:top-1/2"></div>
-            <div className="absolute w-2 h-2 transform -translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary sm:left-1/2 sm:top-[13%] md:left-1/2 md:top-[13%]"></div>
+            <div className="absolute w-2 h-2 transform -translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary  hidden lg:block  md:left-1/2 md:bottom-[13%]"></div>
+            <div className="absolute w-4 h-4 transform -translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary  hidden lg:block  md:left-1/2 md:top-1/2"></div>
+            <div className="absolute w-2 h-2 transform -translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary  hidden lg:block  md:left-1/2 md:top-[13%]"></div>
           </div>
 
           {/* Right side */}
