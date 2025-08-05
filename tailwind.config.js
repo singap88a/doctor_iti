@@ -14,7 +14,7 @@ export default {
       colors: {
         primary: "",
         secondary: "#307BC4",
-         text_color: "#274760",
+       text_color: "#274760",
         bac_bg: "#8349DB0D",
         Paragraph:"#5f5f5f"
       },
@@ -22,5 +22,6 @@ export default {
     },
   },
   plugins: [],
+  
 }
 
