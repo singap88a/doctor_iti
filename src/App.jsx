@@ -8,6 +8,7 @@ import Gallery from "./pages/Gallery/Gallery";
 import Contact from "./pages/Contact/Contact";
 import Appointments from "./pages/Appointments/Appointments";
 import Departments from "./pages/Departments/Departments";
+import DepartmentDetails from "./pages/Departments/DepartmentDetails";
  
 const App = () => {
   return (
@@ -22,6 +23,8 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
            <Route path="/appointments" element={<Appointments />} />
            <Route path="/departments" element={<Departments />} />
+          <Route path="/department/:id" element={<DepartmentDetails />} />
+          <Route path="/appointments" element={<Appointments />} />
 
          </Routes>
       </div>
