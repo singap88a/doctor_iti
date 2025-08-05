@@ -15,7 +15,9 @@ function Appointment({ reverseLayout }) {
   const [department, setDepartment] = useState("");
 
   const handleSubmit = (e) => {
+    
     e.preventDefault();
+
 
     // بلداشن للحقول المطلوبة
     if (
@@ -24,7 +26,7 @@ function Appointment({ reverseLayout }) {
       date === "" ||
       time === "" ||
       medicalRecord === "" ||
-      // reason === "" ||
+      reason === "" ||
       department === ""
     ) {
       toast.error("Please fill all required fields");
@@ -38,8 +40,8 @@ function Appointment({ reverseLayout }) {
       date,
       time,
       medicalRecord,
-      // reason,
-      // department,
+      reason,
+      department,
     });
 
     toast.success("Appointment booked successfully!");
@@ -50,8 +52,8 @@ function Appointment({ reverseLayout }) {
     setDate("");
     setTime("");
     setMedicalRecord("");
-    // setReason("");
-    // setDepartment("");
+    setReason("");
+    setDepartment("");
   };
 
   return (
