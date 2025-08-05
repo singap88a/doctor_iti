@@ -9,6 +9,7 @@ import Contact from "./pages/Contact/Contact";
 import Appointments from "./pages/Appointments/Appointments";
 import Departments from "./pages/Departments/Departments";
 import Doctors from "./pages/Doctors/Doctors";
+import DepartmentDetails from "./pages/Departments/DepartmentDetails";
  
 const App = () => {
   return (
