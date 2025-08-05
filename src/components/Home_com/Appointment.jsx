@@ -24,7 +24,7 @@ function Appointment({ reverseLayout }) {
       date === "" ||
       time === "" ||
       medicalRecord === "" ||
-      reason === "" ||
+      // reason === "" ||
       department === ""
     ) {
       toast.error("Please fill all required fields");
@@ -38,8 +38,8 @@ function Appointment({ reverseLayout }) {
       date,
       time,
       medicalRecord,
-      reason,
-      department,
+      // reason,
+      // department,
     });
 
     toast.success("Appointment booked successfully!");
@@ -50,8 +50,8 @@ function Appointment({ reverseLayout }) {
     setDate("");
     setTime("");
     setMedicalRecord("");
-    setReason("");
-    setDepartment("");
+    // setReason("");
+    // setDepartment("");
   };
 
   return (
@@ -245,7 +245,7 @@ function Appointment({ reverseLayout }) {
                     Neurology
                   </label>
                 </div>
-              </div>
+              </div>  
 
               <button type="submit" className="butt">
                 Submit
