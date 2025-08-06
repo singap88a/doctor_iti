@@ -1,4 +1,4 @@
- import React from 'react'
+  import React from 'react'
  import { Link } from "react-router-dom";
 import bg_banner from "../../assets/img_home/bg_hero.png";
 import Department from "../../pages/Departments/departmentsData";
@@ -13,7 +13,7 @@ import Department from "../../pages/Departments/departmentsData";
           className="container mx-auto bg-center bg-cover rounded-lg h-[770px] md:h-80 sm:px-8 lg:px-16"
           style={{ backgroundImage: `url(${bg_banner})` }}
         >
-          <div className="flex md:items-start lg:items-center justify-center h-20 md:h-full">
+          <div className="flex justify-center h-20 md:items-start lg:items-center md:h-full">
             {/* Title inside the background */}
             <h2 className="text-3xl font-bold sm:text-4xl text-text_color">
               Departments
@@ -23,7 +23,7 @@ import Department from "../../pages/Departments/departmentsData";
       </div>
 
       {/* Cards Section */}
-      <div className="absolute flex justify-center w-full px-10 lg:-bottom-16  md:-bottom-40 bottom-16">
+      <div className="absolute flex justify-center w-full px-10 lg:-bottom-16 md:-bottom-40 bottom-16">
         <div className="grid flex-wrap justify-center grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-5">
           {Department.map((item, index) => (
             <Link to={`/department/${item.id}`}    key={index}>
@@ -49,6 +49,27 @@ import Department from "../../pages/Departments/departmentsData";
       </div>
     </div>
      </>
+ import { Link } from "react-router-dom"
+import bg_banner from "../../assets/img_home/bg_hero.png"
+import Department from "../../pages/Departments/departmentsData"
+ 
+ export default function Departments() {
+   return (
+     <div className="relative mb-[150px]">
+       <div>
+         <div 
+           className="container mx-auto bg-center bg-cover rounded-lg h-[770px] md:h-80 sm:px-8 lg:px-16"
+           style={{ backgroundImage: `url(${ bg_banner })` }}
+         >
+           <div className="flex items-center justify-center h-20 md:h-full">
+             <h2 className="text-3xl font-bold sm:text-4xl text-text_color">
+               departments
+             </h2>
+           </div>
+       </div>
+       </div>
+     </div>
+>>>>>>> b270e47e0ffcfadb30c63dea852d381970317d7d
    )
  }
  

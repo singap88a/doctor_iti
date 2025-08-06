@@ -10,12 +10,8 @@ import Contact from "./pages/Contact/Contact";
 import Gallery from "./pages/Gallery/Gallery";
 import Departments from "./pages/Departments/Departments";
 import DepartmentDetails from "./pages/Departments/DepartmentDetails";
-import Appointments from "./pages/Appointments/Appointments";
-import Timetable from "./pages/Timetable/Timetable";
  
-// import DoctorDetail from "./pages/Doctors/DoctorDetail";
-
-function App() {
+const App = () => {
   return (
     <div className="App">
       <Router>
@@ -28,17 +24,15 @@ function App() {
           {/* This route will handle doctor details */}
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/departments" element={<Departments />} />
-          <Route path="/department/:id" element={<DepartmentDetails />} />
-          {/* Appointments */}
+           <Route path="/appointments" element={<Appointments />} />
+           <Route path="/departments" element={<Departments />} />
+           <Route path="/doctor" element={<Doctors />} />
+           <Route path="/department/:id" element={<DepartmentDetails />} />
           <Route path="/appointments" element={<Appointments />} />
-          {/* Timetable */}
-          <Route path="/timetable" element={<Timetable />} />
  
-          {/* Auth */}
-        </Routes>
-        <Footer />
-      </Router>
+         </Routes>
+      </div>
+      <Footer />
     </div>
   );
 }

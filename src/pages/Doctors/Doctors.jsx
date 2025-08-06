@@ -1,5 +1,5 @@
 import hero_img from "../../assets/img_doctors/hero_doctors.png";
-import Hero_about from "../../Components/About_com/Hero_about";
+import Hero_about from "../../components/About_com/Hero_about";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import tracksData from "./tracksData";
