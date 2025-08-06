@@ -1,7 +1,7 @@
-import React from 'react'
-import { useTranslation } from "react-i18next";
+import React from 'react';
 import imge_1 from "../../assets/img_about/Experts_1.png";
 import imge_2 from "../../assets/img_about/Experts_2.png";
+import { useTranslation } from "react-i18next";
 
 export default function Experts_Doctor() {
   const { t } = useTranslation();
@@ -9,9 +9,9 @@ export default function Experts_Doctor() {
   const Experts = [
     {
       image: imge_1,
-      title: t("about.experts.doctor1_name"),
-      Job: t("about.experts.doctor1_job"),
-      Description: t("about.experts.doctor1_desc"),
+      title: t('about.experts.james_lee'),
+      Job: t('about.experts.head_cardiologist'),
+      Description: t('about.experts.head_cardiologist_desc'),
       icon: [
         { iconClass: "fa-brands fa-facebook" },
         { iconClass: "fa-brands fa-linkedin" },
@@ -20,9 +20,9 @@ export default function Experts_Doctor() {
     },
     {
       image: imge_2,
-      title: t("about.experts.doctor2_name"),
-      Job: t("about.experts.doctor2_job"),
-      Description: t("about.experts.doctor2_desc"),
+      title: t('about.experts.john_smith'),
+      Job: t('about.experts.emergency_physician'),
+      Description: t('about.experts.emergency_physician_desc'),
       icon: [
         { iconClass: "fa-brands fa-facebook" },
         { iconClass: "fa-brands fa-linkedin" },
@@ -31,9 +31,9 @@ export default function Experts_Doctor() {
     },
     {
       image: imge_1,
-      title: t("about.experts.doctor3_name"),
-      Job: t("about.experts.doctor3_job"),
-      Description: t("about.experts.doctor3_desc"),
+      title: t('about.experts.susan_bones'),
+      Job: t('about.experts.pediatrician'),
+      Description: t('about.experts.pediatrician_desc'),
       icon: [
         { iconClass: "fa-brands fa-facebook" },
         { iconClass: "fa-brands fa-linkedin" },
@@ -47,14 +47,14 @@ export default function Experts_Doctor() {
       <div className="container px-4 mx-auto">
         {/* Header Section */}
         <p className="text-xl font-semibold text-center text-secondary">
-          {t("about.experts.meet")}
+          {t('about.experts.meet_our')}
         </p>
         <h2 className="text-3xl font-bold text-center pb-36 text-text_color">
-          {t("about.experts.title")}
+          {t('about.experts.experts_doctor')}
         </h2>
 
         {/* Cards Section */}
-        <div className="expert-doctors flex flex-wrap justify-center md:gap-5 gap-36">
+        <div className="flex flex-wrap justify-center md:gap-10 gap-36">
           {Experts.map((item, index) => (
             <article
               key={index}
