@@ -1,0 +1,22 @@
+ 
+{
+  "navbar": {
+    "home": "Home",
+    "about": "About Us",
+    "find_doctor": "Find Doctor",
+    "contact": "Contact",
+    "pages": "Pages",
+    "departments": "Departments",
+    "gallery": "Gallery",
+    "appointments": "Appointments",
+    "timetable": "Timetable",
+    "search": "Search..."
+  } ,
+    "hero": {
+    "title": "Your Partner in Health and Wellness",
+    "description": "We are committed to providing you with the best medical and healthcare services to help you live healthier and happier.",
+    "see_how_we_work": "See how we work",
+    "alt_text": "Healthcare Hero"
+  }
+
+}
