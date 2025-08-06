@@ -10,7 +10,7 @@ import Appointments from "./pages/Appointments/Appointments";
 import Departments from "./pages/Departments/Departments";
 import Doctors from "./pages/Doctors/Doctors";
 import DepartmentDetails from "./pages/Departments/DepartmentDetails";
- 
+import DoctorDetails from "./pages/Doctors/DoctorDetail";
 const App = () => {
   return (
     <div>
@@ -22,13 +22,13 @@ const App = () => {
           <Route path="/timetable" element={<Timetable />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
-           <Route path="/appointments" element={<Appointments />} />
-           <Route path="/departments" element={<Departments />} />
-           <Route path="/doctor" element={<Doctors />} />
-           <Route path="/department/:id" element={<DepartmentDetails />} />
           <Route path="/appointments" element={<Appointments />} />
- 
-         </Routes>
+          <Route path="/departments" element={<Departments />} />
+          <Route path="/doctor" element={<Doctors />} />
+          <Route path="/department/:id" element={<DepartmentDetails />} />
+          <Route path="/appointments" element={<Appointments />} />
+          <Route path="/doctor/:id" element={<DoctorDetails />} />{" "}
+        </Routes>
       </div>
       <Footer />
     </div>
