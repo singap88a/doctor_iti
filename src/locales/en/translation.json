@@ -343,8 +343,7 @@
       "title": "Clothing and Fabric Care",
       "description": "Guidance and services for selecting and maintaining appropriate attire for comfort, safety, and style."
     }
-<<<<<<< HEAD
-=======
+  
   },
   "contact": {
     "title": "Contact Us",
@@ -366,6 +365,5 @@
       "error_message": "Please fill all fields",
       "success_message": "Form submitted successfully!"
     }
->>>>>>> 26d3dbb658a1599169e54af921918fd88f395952
-  }
+   }
 }
