@@ -15,7 +15,7 @@ import Emergency from "../../assets/img_Departments/Emergency.jpg";
 import Dermatology from "../../assets/img_Departments/Dermatology.webp";
 import Pediatric from "../../assets/img_Departments/Pediatric.webp";
 import Orthopedic from "../../assets/img_Departments/Orthopedic.jpg";
-import Neurology  from "../../assets/img_Departments/Neurology.jpg"
+import Neurology from "../../assets/img_Departments/Neurology.jpg";
 
 const Departments = [
   {
@@ -158,7 +158,7 @@ const Departments = [
     title: "departments.neurology.title",
     description: "departments.neurology.description",
 
-      hero_img: Neurology,
+    hero_img: Neurology,
     doctors: [
       {
         name: "Dr. Olivia Harris, MD",
