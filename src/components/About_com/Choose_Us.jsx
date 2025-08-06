@@ -1,35 +1,34 @@
- import React from 'react'
 import Lottie from "lottie-react";
 import Choose_Us_anma from "../../Animation/Choose_Us.json";
+import { useTranslation } from "react-i18next";
 
- 
- export default function Choose_Us() {
-  const Chooses =[
+function Choose_Us() {
+  const { t } = useTranslation();
+  const Chooses = [
     {
-      title:'Experienced Medical Professionals',
-      icon: 'fa-solid fa-user-md',
-      descriprtion: 'Our team includes experienced doctors, nurses, and other healthcare professionals who are dedicated to providing the best possible care to our patients.',
+      title: t('about.choose_us.experienced_professionals'),
+      text: t('about.choose_us.experienced_professionals_text'),
+      icon: "fa-solid fa-user-md",
     },
-     {
-      title:'Comprehensive Services',
-      icon: 'fa-solid fa-notes-medical',
-      descriprtion: 'We offer a wide range of healthcare services, from preventive care to specialized treatment for complex conditions.',
+    {
+      title: t('about.choose_us.comprehensive_services'),
+      text: t('about.choose_us.comprehensive_services_text'),
+      icon: "fa-solid fa-notes-medical",
     },
-     {
-      title:'Patient-centered Approach',
-      icon: 'fa-solid fa-hand-holding-heart',
-      descriprtion: 'We believe in treating each patient as an individual, and we take the time to understand your unique health needs and concerns.',
+    {
+      title: t('about.choose_us.patient_centered'),
+      text: t('about.choose_us.patient_centered_text'),
+      icon: "fa-solid fa-hand-holding-heart",
     },
-     {
-      title: "State-of-the-art Facilities",
+    {
+      title: t('about.choose_us.state_of_art'),
+      text: t('about.choose_us.state_of_art_text'),
       icon: "fa-solid fa-hospital",
-      descriprtion: 'Our healthcare center is equipped with the latest technology and equipment to provide our patients with the most advanced care possible.',
-
     },
-  ]
-   return (
-     <>
-     <div className="mb-[100px] p-4">
+  ];
+
+  return (
+    <div className="mb-[100px] px-4">
       <div className="container mx-auto">
         <div className="flex flex-col gap-8 md:flex-row">
           <div className="flex items-center justify-center w-full md:w-1/3">
@@ -37,9 +36,9 @@ import Choose_Us_anma from "../../Animation/Choose_Us.json";
           </div>
           <div className="w-full md:w-2/3">
             <h1 className="mb-6 text-4xl font-bold text-text_color">
-              Why Choose Us
+              {t('about.choose_us.why_choose_us')}
             </h1>
-            <div className="grid pt-5 gap-6 sm:grid-cols-1 md:grid-cols-2">
+            <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2">
               {Chooses.map((choose, index) => (
                 <div
                   className="p-6 "
@@ -51,7 +50,7 @@ import Choose_Us_anma from "../../Animation/Choose_Us.json";
                   <h2 className="mb-2 text-2xl font-bold text-text_color">
                     {choose.title}
                   </h2>
-                  <p className="text-Paragraph">{choose.descriprtion}</p>
+                  <p className="text-Paragraph">{choose.text}</p>
                 </div>
               ))}
             </div>
@@ -59,7 +58,8 @@ import Choose_Us_anma from "../../Animation/Choose_Us.json";
         </div>
       </div>
     </div>
-     </>
-   )
- }
+  );
+}
+
+export default Choose_Us;
  

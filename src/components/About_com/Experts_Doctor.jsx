@@ -1,60 +1,58 @@
-import React from 'react'
 import imge_1 from "../../assets/img_about/Experts_1.png";
 import imge_2 from "../../assets/img_about/Experts_2.png";
+import { useTranslation } from "react-i18next";
 
-export default function Experts_Doctor() {
+function Experts_Doctor() {
+  const { t } = useTranslation();
   const Experts = [
     {
       image: imge_1,
-      title: "Dr. James Lee, MD",
-      Job: "Head of Cardiologist",
-      Description:
-        "With expertise in managing complex heart conditions and performing advanced cardiac procedures",
+      Job: t('about.experts.head_cardiologist'),
+      Description: t('about.experts.head_cardiologist_desc'),
       icon: [
         { iconClass: "fa-brands fa-facebook" },
         { iconClass: "fa-brands fa-linkedin" },
         { iconClass: "fa-brands fa-twitter" },
       ],
+      title: t('about.experts.james_lee'),
     },
     {
       image: imge_2,
-      title: "Dr. John Smith, MD",
-      Job: "Emergency Medicine Physician",
-      Description:
-        "With expertise in treating acute illnesses and injuries in medicine physician",
+      Job: t('about.experts.emergency_physician'),
+      Description: t('about.experts.emergency_physician_desc'),
       icon: [
         { iconClass: "fa-brands fa-facebook" },
         { iconClass: "fa-brands fa-linkedin" },
         { iconClass: "fa-brands fa-twitter" },
       ],
+      title: t('about.experts.john_smith'),
     },
     {
       image: imge_1,
-      title: "Dr. Susan Bones, MD",
-      Job: "Board-certified Pediatrician",
-      Description:
-        "With experience in managing complex medical conditions in children",
+      Job: t('about.experts.pediatrician'),
+      Description: t('about.experts.pediatrician_desc'),
       icon: [
         { iconClass: "fa-brands fa-facebook" },
         { iconClass: "fa-brands fa-linkedin" },
         { iconClass: "fa-brands fa-twitter" },
       ],
+      title: t('about.experts.susan_bones'),
     },
   ];
+
   return (
-    <>
     <div className="mb-[100px]">
       <div className="container px-4 mx-auto">
         {/* Header Section */}
         <p className="text-xl font-semibold text-center text-secondary">
-          MEET OUR
+          {t('about.experts.meet_our')}
         </p>
         <h2 className="text-3xl font-bold text-center pb-36 text-text_color">
-          Experts Doctor
+          {t('about.experts.experts_doctor')}
         </h2>
 
         {/* Cards Section */}
-        <div className="expert-doctors flex flex-wrap justify-center md:gap-5 gap-36">
+        <div className="flex flex-wrap justify-center md:gap-10 gap-36">
           {Experts.map((item, index) => (
             <article
               key={index}
@@ -95,7 +93,8 @@ export default function Experts_Doctor() {
         </div>
       </div>
     </div>
-    </>
-  )
+  );
 }
+
+export default Experts_Doctor;
  
