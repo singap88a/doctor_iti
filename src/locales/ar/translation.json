@@ -343,5 +343,29 @@
       "title": "العناية بالملابس والنسيج",
       "description": "إرشاد وخدمات لاختيار وصيانة الملابس المناسبة للراحة والأمان والأناقة."
     }
+<<<<<<< HEAD
+=======
+  },
+  "contact": {
+    "title": "اتصل بنا",
+    "description": "يرجى التواصل معنا للحصول على أسرع استجابة وعلاج",
+    "find_us": "تواصل معنا",
+    "phone": "الهاتف",
+    "email": "البريد الإلكتروني",
+    "location": "الموقع",
+    "form": {
+      "name": "الاسم",
+      "name_placeholder": "محمد أحمد",
+      "email": "البريد الإلكتروني",
+      "email_placeholder": "example@example.com",
+      "subject": "الموضوع",
+      "subject_placeholder": "أدخل الموضوع",
+      "message": "الرسالة",
+      "message_placeholder": "اكتب رسالتك هنا...",
+      "submit": "إرسال",
+      "error_message": "يرجى ملء جميع الحقول",
+      "success_message": "تم إرسال النموذج بنجاح!"
+    }
+>>>>>>> 26d3dbb658a1599169e54af921918fd88f395952
   }
 }

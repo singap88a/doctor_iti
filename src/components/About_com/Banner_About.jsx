@@ -1,24 +1,26 @@
 import React from 'react'
- import Banner from "../../assets/img_home/bg_banner.png";
+import Banner from "../../assets/img_home/bg_banner.png";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
+import { useTranslation } from "react-i18next";
 
-export default function Banner_About() {
-   const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 1,
+function Banner_About() {
+  const { t } = useTranslation();
+  const { ref, inView } = useInView({
+    triggerOnce: true, // العد يحدث مرة واحدة فقط
+    threshold: 1, // يبدأ العد عندما يظهر 20% من القسم في نافذة العرض
   });
 
   const stats = [
-    { value: 20, suffix: "+", text: "Years of experience" },
-    { value: 95, suffix: "%", text: "Patient satisfaction rating" },
-    { value: 5000, suffix: "+", text: "Patients served annually" },
-    { value: 10, suffix: "+", text: "Healthcare providers on staff" },
-    { value: 22, suffix: "+", text: "Convenient locations in the area" },
+    { value: 20, suffix: "+", text: t('about.banner.years_experience') },
+    { value: 95, suffix: "%", text: t('about.banner.patient_satisfaction') },
+    { value: 5000, suffix: "+", text: t('about.banner.patients_served') },
+    { value: 10, suffix: "+", text: t('about.banner.providers_on_staff') },
+    { value: 22, suffix: "+", text: t('about.banner.locations') },
   ];
+
   return (
-    <>
-     <div ref={ref} className="px-4 mb-24">
+    <div ref={ref} className="px-4 mb-24">
       <div className="container mx-auto">
         <div
           className="w-full py-16 bg-center bg-cover rounded-2xl md:py-24"
@@ -42,6 +44,7 @@ export default function Banner_About() {
         </div>
       </div>
     </div>
-    </>
-  )
+  );
 }
+
+export default Banner_About;

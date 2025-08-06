@@ -11,10 +11,12 @@ import DoctorDetails from "./pages/Doctors/DoctorDetail";
 import Gallery from "./pages/Gallery/Gallery";
 import Departments from "./pages/Departments/Departments";
 import DepartmentDetails from "./pages/Departments/DepartmentDetails";
-import Appointments from "./pages/Appointments/Appointments";
+ 
+import AdminLogin from "./components/AdminLogin";
+ import Appointments from "./pages/Appointments/Appointments";
 import Timetable from "./pages/Timetable/Timetable";
 import ScrollToTop from "./ScrollToTop"; // Import ScrollToTop
- 
+  
 
 // import DoctorDetail from "./pages/Doctors/DoctorDetail";
 
@@ -38,11 +40,12 @@ function App() {
           <Route path="/department/:id" element={<DepartmentDetails />} />
           {/* Appointments */}
           <Route path="/appointments" element={<Appointments />} />
-          {/* Timetable */}
+           <Route path="/admin" element={<AdminLogin/>} />
+           {/* Timetable */}
           <Route path="/timetable" element={<Timetable />} />
           {/* Auth */}
             {/* Admin */}
-         </Routes>
+          </Routes>
         <Footer />
       </Router>
     </div>

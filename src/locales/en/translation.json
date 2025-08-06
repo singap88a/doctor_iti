@@ -343,5 +343,29 @@
       "title": "Clothing and Fabric Care",
       "description": "Guidance and services for selecting and maintaining appropriate attire for comfort, safety, and style."
     }
+<<<<<<< HEAD
+=======
+  },
+  "contact": {
+    "title": "Contact Us",
+    "description": "Kindly reach us to get the fastest response and treatment",
+    "find_us": "Find Us Here",
+    "phone": "Phone",
+    "email": "Email",
+    "location": "Location",
+    "form": {
+      "name": "Name",
+      "name_placeholder": "John Doe",
+      "email": "Email",
+      "email_placeholder": "john.doe@example.com",
+      "subject": "Subject",
+      "subject_placeholder": "Enter the subject",
+      "message": "Message",
+      "message_placeholder": "Write your message here...",
+      "submit": "Submit",
+      "error_message": "Please fill all fields",
+      "success_message": "Form submitted successfully!"
+    }
+>>>>>>> 26d3dbb658a1599169e54af921918fd88f395952
   }
 }
