@@ -15,15 +15,14 @@ import Emergency from "../../assets/img_Departments/Emergency.jpg";
 import Dermatology from "../../assets/img_Departments/Dermatology.webp";
 import Pediatric from "../../assets/img_Departments/Pediatric.webp";
 import Orthopedic from "../../assets/img_Departments/Orthopedic.jpg";
-import Neurology  from "../../assets/img_Departments/Neurology.jpg"
+import Neurology from "../../assets/img_Departments/Neurology.jpg";
 
 const Departments = [
   {
     id: 1,
     icon: "fa-solid fa-hospital",
-    title: "Emergency Department",
-    description:
-      "The Emergency Department provides immediate treatment for critical injuries and urgent medical conditions.",
+    title: "departments.emergency.title",
+    description: "departments.emergency.description",
     hero_img: Emergency,
     doctors: [
       {
@@ -65,9 +64,8 @@ const Departments = [
   {
     id: 2,
     icon: "fa-solid fa-user-md",
-    title: "Dermatology Department",
-    description:
-      "The Dermatology Department specializes in diagnosing and treating skin, hair, and nail disorders.",
+    title: "departments.dermatology.title",
+    description: "departments.dermatology.description",
     hero_img: Dermatology,
     doctors: [
       {
@@ -94,9 +92,8 @@ const Departments = [
   {
     id: 3,
     icon: "fa-solid fa-child",
-    title: "Pediatric Department",
-    description:
-      "The Pediatric Department offers medical care for infants, children, and adolescents.",
+    title: "departments.pediatric.title",
+    description: "departments.pediatric.description",
     hero_img: Pediatric,
     doctors: [
       {
@@ -130,9 +127,8 @@ const Departments = [
   {
     id: 4,
     icon: "fa-solid fa-bone",
-    title: "Orthopedic Department",
-    description:
-      "The Orthopedic Department focuses on treating musculoskeletal conditions, including bones, joints, and muscles.",
+    title: "departments.orthopedic.title",
+    description: "departments.orthopedic.description",
     hero_img: Orthopedic,
     doctors: [
       {
@@ -159,11 +155,10 @@ const Departments = [
   {
     id: 5,
     icon: "fa-solid fa-brain",
-    title: "Neurology Department",
-    description:
-      "The Neurology Department provides specialized care for disorders of the brain, spinal cord, and nervous system.",
+    title: "departments.neurology.title",
+    description: "departments.neurology.description",
 
-      hero_img: Neurology,
+    hero_img: Neurology,
     doctors: [
       {
         name: "Dr. Olivia Harris, MD",
