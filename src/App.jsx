@@ -10,6 +10,7 @@ import Appointments from "./pages/Appointments/Appointments";
 import Departments from "./pages/Departments/Departments";
 import Doctors from "./pages/Doctors/Doctors";
 import DepartmentDetails from "./pages/Departments/DepartmentDetails";
+import AdminLogin from "./components/AdminLogin";
  
 const App = () => {
   return (
@@ -27,7 +28,7 @@ const App = () => {
            <Route path="/doctor" element={<Doctors />} />
            <Route path="/department/:id" element={<DepartmentDetails />} />
           <Route path="/appointments" element={<Appointments />} />
- 
+          <Route path="/admin" element={<AdminLogin/>} />
          </Routes>
       </div>
       <Footer />
