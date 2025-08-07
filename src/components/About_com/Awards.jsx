@@ -9,7 +9,7 @@ function Awards() {
       title: "HIMSS Davies Award",
       image: Departments,
     },
-    {
+    { 
       title: "Healthgrades National’s Best Hospital",
       image: Departments,
     },
