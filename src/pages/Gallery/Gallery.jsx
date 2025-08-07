@@ -29,9 +29,10 @@ function Gallery() {
     return (
     <div>
       <Hero_about
-        title="Welcome to ProHealth Gallery"
-        description="The special moment of our hospital"
+        titleKey="gallery.hero.title"
+        descriptionKey="gallery.hero.description"
         img={hero}
+        
       />
 
       {/* Gallery Section */}

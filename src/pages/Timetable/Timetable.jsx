@@ -13,8 +13,8 @@ const timetable = () => {
   return (
     <div className="">
       <Hero_about
-        title="ProHealth Timetable"
-        description="Get to know the complete info of our doctors’ schedule"
+        titleKey="timetable.title"
+        descriptionKey="timetable.description"
         img={heroimg}
         reverseLayout={true}
       />

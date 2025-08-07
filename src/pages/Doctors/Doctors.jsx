@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import tracksData from "./tracksData";
 
 function Doctors() {
+  
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   // فلترة البيانات حسب التصنيف فقط بدون تقطيع صفحات
@@ -16,10 +17,10 @@ function Doctors() {
   return (
     <div>
       <Hero_about
-        title="Meet Our Experts and Learn from Their Expertise"
-        description="The list of certified doctors with years of professional experiences"
-        img={hero_img}
-        reverseLayout={true}
+      titleKey="doctors.hero.title"
+      descriptionKey="doctors.hero.description"
+      reverseLayout={true}
+      img={hero_img}
       />
 
       <div className="container">

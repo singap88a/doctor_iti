@@ -7,9 +7,9 @@ function Appointments() {
   return (
     <div className="mb-12">
       <Hero_about
-        title="Don’t Let Your Health Take a Backseat!"
-        description="Fill out the appointment form below to schedule a consultation with one of our healthcare professionals."
-        img={hero}
+      titleKey="appointment.hero.title"
+      descriptionKey="appointment.hero.description"
+      img={hero}
       />
       <Appointment/>
     </div>

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { useTranslation } from "react-i18next";
+import { GlobeAltIcon } from "@heroicons/react/16/solid";
 
 function Navbar() {
   const { t, i18n } = useTranslation();
@@ -52,7 +53,7 @@ function Navbar() {
           </div>
 
           {/* Links */}
-          <div className="items-center hidden space-x-4 md:flex">
+          <div className="items-center hidden space-x-5 md:flex">
             {[
               { to: "/", text: t("navbar.home") },
               { to: "/about", text: t("navbar.about") },
@@ -98,18 +99,25 @@ function Navbar() {
                 </div>
               )}
             </div>
+           
+ 
+          </div>
             {/* زر اللغة */}
-            <button
+
+           <button
               onClick={toggleLanguage}
-              className="px-3 py-1 ml-4 font-bold text-white transition rounded bg-secondary hover:bg-primary"
+              className="px-3 py-1 relative left-40 right-40 font-bold text-white transition rounded  bg-gradient-to-r from-[#376ca4] to-[#042d4f] hover:bg-gradient-to-l hover:from-[#376ca4] hover:to-[#042d4f] transition-all duration-500"
               style={{ minWidth: 50 }}
               aria-label="Toggle language"
             >
+              <div className="flex">
+                <GlobeAltIcon className="pl-1 w-6 h-6 text-white" />
               {i18n.language === "en" ? "عربي" : "EN"}
+              </div>
+              
             </button>
             {/* أزرار تسجيل الدخول والتسجيل بدون ترجمة */}
- 
-          </div>
+
 
            <div className="flex items-center space-x-4">
               <button

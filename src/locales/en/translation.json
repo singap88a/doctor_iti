@@ -198,6 +198,10 @@
       "emergency": "Emergency",
       "cardiology": "Cardiology",
       "neurology": "Neurology"
+    },
+    "hero":{
+      "title":"Don’t Let Your Health Take a Backseat!",
+      "description":"Fill out the appointment form below to schedule a consultation with one of our healthcare professionals."
     }
   },
   "departments_2": {
@@ -369,6 +373,28 @@
       "error_message": "Please fill all fields",
       "success_message": "Form submitted successfully!"
     }
+    },
+    "doctors":{
+      "hero":{
+        "title":"Meet Our Experts and Learn from Their Expertise",
+        "description":"The list of certified doctors with years of professional experiences"
+      }
+    },
+    "contact":{
+      "hero":{
+        "title":"contact us",
+        "description":"Kindly reach us to get the fastest response and treatment"
+      }
+    },
+     "gallery":{
+      "hero":{
+        "title":"Welcome to ProHealth Gallery",
+        "description":"The special moment of our hospital"
+      }
+    },
+    "timetable":{
+      "title":"ProHealth Timetable",
+      "description":"Get to know the complete info of our doctors’ schedule"
     }
     }
  
