@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "react-toastify/dist/ReactToastify.css";
+import { useTranslation } from "react-i18next";
 
 
 export default function Form_Contact() {
+  const { t } = useTranslation();
   const [Name, setName] = useState("");
   const [Email, setEmail] = useState("");
   const [Subject, setSubject] = useState("");
@@ -16,7 +18,7 @@ export default function Form_Contact() {
 
     //checked if fieldes empty or no
     if (Name === "" || Email === "" || Subject === "" || Message === "") {
-      toast.error("Please fill all fields", {
+      toast.error(t("contact.form.error_message"), {
         position: "top-center",
         autoClose: 4000,
       });
@@ -34,7 +36,7 @@ export default function Form_Contact() {
     setMessage("");
 
     //show sucess message
-    toast.success("Form Submitted Sucessfully!", {
+    toast.success(t("contact.form.success_message"), {
       autoClose: 4000,
     });
   };
@@ -49,9 +51,9 @@ export default function Form_Contact() {
         <div className='flex flex-wrap justify-between gap-6 md:flex-nowrap'>
           <div className='flex flex-col gap-2 w-full md:w-[48%]'>
             <label htmlFor='Name' className='text-text_color'>
-              Name
+              {t("contact.form.name")}
             </label>
-            <input type='text' id='Name' placeholder='David Jone' name='name'
+            <input type='text' id='Name' placeholder={t("contact.form.name_placeholder")} name='name'
               className='w-full px-4 py-3 border rounded-lg border-secondary focus:outline-none focus:ring-2 focus:ring-blue-500'
               onChange={(e) => setName(e.target.value)}
               value={Name}
@@ -59,9 +61,9 @@ export default function Form_Contact() {
           </div>
           <div className='flex flex-col gap-2 w-full md:w-[48%]'>
             <label htmlFor='Email' className='text-text_color'>
-              Email
+              {t("contact.form.email")}
             </label>
-            <input type='email' id='Email' placeholder='example@gmail.com' name='email'
+            <input type='email' id='Email' placeholder={t("contact.form.email_placeholder")} name='email'
               className='w-full px-4 py-3 border rounded-lg border-secondary focus:outline-none focus:ring-2 focus:ring-blue-500'
               onChange={(e) => setEmail(e.target.value)}
               value={Email}
@@ -70,17 +72,17 @@ export default function Form_Contact() {
         </div>
         <div className='flex flex-col gap-2 mt-6'>
           <label htmlFor='Subject' className='text-text_color'>
-            Subject
+            {t("contact.form.subject")}
           </label>
-          <input type='text' id='Subject' name='subject' placeholder='Enter The Subject'
+          <input type='text' id='Subject' name='subject' placeholder={t("contact.form.subject_placeholder")}
             className='w-full px-4 py-3 border rounded-lg border-secondary focus:outline-none focus:ring-2 focus:ring-blue-500'
             onChange={(e) => setSubject(e.target.value)}
             value={Subject}
           />
         </div>
         <div className='flex flex-col gap-2 mt-6'>
-          <label htmlFor='text' className='text-text_color' >Message</label>
-          <textarea type='text' id='Message' name='message' placeholder='Write Your Message Here...'
+          <label htmlFor='text' className='text-text_color' >{t("contact.form.message")}</label>
+          <textarea type='text' id='Message' name='message' placeholder={t("contact.form.message_placeholder")}
             className='w-full px-4 py-3 border rounded-lg resize-none border-secondary focus:outline-none focus:ring-2 focus:ring-blue-500'
             onChange={(e) => setMessage(e.target.value)}
             value={Message}
@@ -89,7 +91,7 @@ export default function Form_Contact() {
         </div>
         <div className='mt-6'>
           <button type='submit' className='butt'>
-            Submit
+            {t("contact.form.submit")}
           </button>
         </div>
       </form>

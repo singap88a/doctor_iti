@@ -61,6 +61,7 @@ const tracksData = [
       { iconClass: "fa-brands fa-facebook" },
       { iconClass: "fa-brands fa-linkedin" },
       { iconClass: "fa-brands fa-twitter" },
+      { iconClass: "fa-brands fa-whatsapp" },
     ],
   },
   {
@@ -109,6 +110,7 @@ const tracksData = [
       { iconClass: "fa-brands fa-facebook" },
       { iconClass: "fa-brands fa-linkedin" },
       { iconClass: "fa-brands fa-twitter" },
+      { iconClass: "fa-brands fa-whatsapp" },
     ],
   },
   {
@@ -157,6 +159,7 @@ const tracksData = [
       { iconClass: "fa-brands fa-facebook" },
       { iconClass: "fa-brands fa-linkedin" },
       { iconClass: "fa-brands fa-twitter" },
+      { iconClass: "fa-brands fa-whatsapp" },
     ],
   },
   {
@@ -205,6 +208,7 @@ const tracksData = [
       { iconClass: "fa-brands fa-facebook" },
       { iconClass: "fa-brands fa-linkedin" },
       { iconClass: "fa-brands fa-twitter" },
+      { iconClass: "fa-brands fa-whatsapp" },
     ],
   },
   {
@@ -253,6 +257,7 @@ const tracksData = [
       { iconClass: "fa-brands fa-facebook" },
       { iconClass: "fa-brands fa-linkedin" },
       { iconClass: "fa-brands fa-twitter" },
+      { iconClass: "fa-brands fa-whatsapp" },
     ],
   },
   {
@@ -301,6 +306,7 @@ const tracksData = [
       { iconClass: "fa-brands fa-facebook" },
       { iconClass: "fa-brands fa-linkedin" },
       { iconClass: "fa-brands fa-twitter" },
+      { iconClass: "fa-brands fa-whatsapp" },
     ],
   },
   {
@@ -349,6 +355,7 @@ const tracksData = [
       { iconClass: "fa-brands fa-facebook" },
       { iconClass: "fa-brands fa-linkedin" },
       { iconClass: "fa-brands fa-twitter" },
+      { iconClass: "fa-brands fa-whatsapp" },
     ],
   },
 
@@ -398,6 +405,7 @@ const tracksData = [
       { iconClass: "fa-brands fa-facebook" },
       { iconClass: "fa-brands fa-linkedin" },
       { iconClass: "fa-brands fa-twitter" },
+      { iconClass: "fa-brands fa-whatsapp" },
     ],
   },
   {
@@ -450,6 +458,7 @@ const tracksData = [
       { iconClass: "fa-brands fa-facebook" },
       { iconClass: "fa-brands fa-linkedin" },
       { iconClass: "fa-brands fa-twitter" },
+      { iconClass: "fa-brands fa-whatsapp" },
     ],
   },
 
@@ -499,6 +508,7 @@ const tracksData = [
       { iconClass: "fa-brands fa-facebook" },
       { iconClass: "fa-brands fa-linkedin" },
       { iconClass: "fa-brands fa-twitter" },
+      { iconClass: "fa-brands fa-whatsapp" },
     ],
   },
   {
@@ -547,6 +557,7 @@ const tracksData = [
       { iconClass: "fa-brands fa-facebook" },
       { iconClass: "fa-brands fa-linkedin" },
       { iconClass: "fa-brands fa-twitter" },
+      { iconClass: "fa-brands fa-whatsapp" },
     ],
   },
   {
@@ -595,6 +606,7 @@ const tracksData = [
       { iconClass: "fa-brands fa-facebook" },
       { iconClass: "fa-brands fa-linkedin" },
       { iconClass: "fa-brands fa-twitter" },
+      { iconClass: "fa-brands fa-whatsapp" },
     ],
   },
   {
@@ -639,6 +651,7 @@ const tracksData = [
       { iconClass: "fa-brands fa-facebook" },
       { iconClass: "fa-brands fa-linkedin" },
       { iconClass: "fa-brands fa-twitter" },
+      { iconClass: "fa-brands fa-whatsapp" },
     ],
   },
 ];

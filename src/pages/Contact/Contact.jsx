@@ -3,13 +3,16 @@ import Hero_about from "../../components/About_com/Hero_about";
 import hero from "../../assets/img_about/about_hero.png";
 import Form_Contact from "./Form_Contact";
 import Find_Contact from "./Find_Contact";
+import { useTranslation } from "react-i18next";
 
 export default function Contact() {
+  const { t } = useTranslation();
   return (
     <div className='page-contact'>
 
-      <Hero_about title="Contact Us"
-        description="Kindly reach us to get the fastest response and treatment"
+      <Hero_about
+        titleKey="contact.title"
+        descriptionKey="contact.description"
         img={hero}
         reverseLayout={true}
       />

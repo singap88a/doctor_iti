@@ -152,11 +152,11 @@ function DoctorDetails() {
             </div>
 
             {/* Social Icons */}
-            <div className="flex justify-center w-32 px-3 py-2 mt-10 ml-16 space-x-4 rounded-md bg-secondary">
+            <div className="flex justify-center w-[35%] px-3 py-2 mt-10 ml-16 space-x-4 rounded-md bg-secondary">
               {doctor.icon.map((icon, i) => (
                 <a
                   key={i}
-                  href="#"
+                  href="https://wa.me/<>?text=<الرسالة>"
                   className="text-2xl text-white transition-colors duration-300 hover:text-slate-700"
                 >
                   <i className={icon.iconClass}></i>
