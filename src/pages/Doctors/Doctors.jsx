@@ -38,8 +38,8 @@ function Doctors() {
             <button
               key={category.key}
               className={`px-4 py-1 rounded-[20px] border-2 border-secondary ${selectedCategory === category.key
-                  ? "bg-secondary text-white"
-                  : "hover:bg-[#3c89cd3e] transition-all"
+                ? "bg-secondary text-white"
+                : "hover:bg-[#3c89cd3e] transition-all"
                 }  py-2 px-2`}
               onClick={() => setSelectedCategory(category.key)}
             >
