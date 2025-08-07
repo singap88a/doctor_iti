@@ -1,7 +1,7 @@
 // import React from 'react'
 import { Link } from "react-router-dom";
 import hero from "../../assets/img_doctors/hero_doctors.png";
-import Hero_about from "../../Components/About_com/Hero_about";
+import Hero_about from "../../components/About_com/Hero_about";
 import DepartmentsData from "./departmentsData";
 import { useTranslation } from "react-i18next";
 

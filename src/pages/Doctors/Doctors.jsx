@@ -3,7 +3,7 @@ import hero_img from "../../assets/img_doctors/hero_doctors.png";
 import { Link } from "react-router-dom";
 import tracksData from "./tracksData";
 import { useTranslation } from "react-i18next";
-import Hero_about from "../../Components/About_com/Hero_about";
+import Hero_about from "../../components/About_com/Hero_about";
 
 function Doctors() {
   const [selectedCategory, setSelectedCategory] = useState("All");

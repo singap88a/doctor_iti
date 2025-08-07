@@ -1,8 +1,8 @@
 import "./App.css";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Footer from "./Components/Footer";
-import Navbar from "./Components/Navbar";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import Doctors from "./pages/Doctors/Doctors";
@@ -11,9 +11,9 @@ import DoctorDetails from "./pages/Doctors/DoctorDetail";
 import Gallery from "./pages/Gallery/Gallery";
 import Departments from "./pages/Departments/Departments";
 import DepartmentDetails from "./pages/Departments/DepartmentDetails";
- 
+
 // import AdminLogin from "./components/AdminLogin";
- import Appointments from "./pages/Appointments/Appointments";
+import Appointments from "./pages/Appointments/Appointments";
 import Timetable from "./pages/Timetable/Timetable";
 import ScrollToTop from "./ScrollToTop"; // Import ScrollToTop
 import AdminAppointments from "./pages/admin_doctors/admin_appointment";
@@ -24,14 +24,14 @@ function App() {
   return (
     <div className="App">
       <Router>
-      <ScrollToTop /> {/* Add ScrollToTop here */}
+        <ScrollToTop /> {/* Add ScrollToTop here */}
 
         <Navbar />
 
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          
+
           <Route path="/doctor" element={<Doctors />} />
           <Route path="/doctor/:id" element={<DoctorDetails />} />{" "}
           {/* This route will handle doctor details */}
@@ -41,14 +41,14 @@ function App() {
           <Route path="/department/:id" element={<DepartmentDetails />} />
           {/* Appointments */}
           <Route path="/appointments" element={<Appointments />} />
-           {/* <Route path="/admin" element={<AdminLogin/>} /> */}
-           {/* Timetable */}
+          {/* <Route path="/admin" element={<AdminLogin/>} /> */}
+          {/* Timetable */}
           <Route path="/timetable" element={<Timetable />} />
           <Route path="/admin" element={<AdminAppointments />} />
-          
+
           {/* Auth */}
-            {/* Admin */}
-          </Routes>
+          {/* Admin */}
+        </Routes>
         <Footer />
       </Router>
     </div>

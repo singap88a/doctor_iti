@@ -1,6 +1,6 @@
 
 import hero from "../../assets/img_about/about_hero.png";
-import Hero_about from "../../Components/About_com/Hero_about";
+import Hero_about from "../../components/About_com/Hero_about";
 import Activities_1 from "../../assets/img_about/Activities_1.png";
 import Activities_2 from "../../assets/img_about/Activities_2.png";
 import Activities_4 from "../../assets/img_about/Activities_4.png";
