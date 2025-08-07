@@ -9,7 +9,8 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [hasShadow, setHasShadow] = useState(false);
   const [isPagesOpen, setIsPagesOpen] = useState(false);
-    const location = useLocation();
+  const [isSearchOpen, setIsSearchOpen] = useState(false);  
+   const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -105,7 +106,7 @@ function Navbar() {
 
            <button
               onClick={toggleLanguage}
-              className="px-3 py-1 relative left-40 right-40 font-bold text-white transition rounded  bg-gradient-to-r from-[#376ca4] to-[#042d4f] hover:bg-gradient-to-l hover:from-[#376ca4] hover:to-[#042d4f] transition-all duration-500 md:block hidden"
+              className="px-3 py-1 relative left-40 right-40 font-bold text-white transition rounded  bg-gradient-to-r from-[#376ca4] to-[#042d4f] hover:bg-gradient-to-l hover:from-[#376ca4] hover:to-[#042d4f] transition-all duration-500 md:block "
               style={{ minWidth: 50 }}
               aria-label="Toggle language"
             >

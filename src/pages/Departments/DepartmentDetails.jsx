@@ -5,7 +5,7 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import Treatments from "./Treatments";
-import Appointment from "../../Components/Home_com/Appointment";
+import Appointment from "../../pages/Appointments/Appointments";
 import { useTranslation } from "react-i18next";
 
 function DepartmentDetails() {

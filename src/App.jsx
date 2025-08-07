@@ -16,7 +16,7 @@ import AdminLogin from "./components/AdminLogin";
  import Appointments from "./pages/Appointments/Appointments";
 import Timetable from "./pages/Timetable/Timetable";
 import ScrollToTop from "./ScrollToTop"; // Import ScrollToTop
-  
+import AdminAppointments from "./pages/admin_doctors/admin_appointment";
 
 // import DoctorDetail from "./pages/Doctors/DoctorDetail";
 
@@ -31,6 +31,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          
           <Route path="/doctor" element={<Doctors />} />
           <Route path="/doctor/:id" element={<DoctorDetails />} />{" "}
           {/* This route will handle doctor details */}
@@ -43,6 +44,8 @@ function App() {
            <Route path="/admin" element={<AdminLogin/>} />
            {/* Timetable */}
           <Route path="/timetable" element={<Timetable />} />
+          <Route path="/AdminAppointments" element={<AdminAppointments />} />
+          
           {/* Auth */}
             {/* Admin */}
           </Routes>
