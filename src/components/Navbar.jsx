@@ -101,7 +101,7 @@ function Navbar() {
             {/* زر اللغة */}
             <button
               onClick={toggleLanguage}
-              className="px-3 py-1 ml-4 font-bold text-white transition rounded bg-secondary hover:bg-primary"
+              className="px-3 py-1 ml-4 font-bold text-white transition rounded bg-secondary hover:bg-primary "
               style={{ minWidth: 50 }}
               aria-label="Toggle language"
             >
