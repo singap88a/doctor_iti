@@ -6,7 +6,6 @@ import tracksData from "./tracksData";
 import { useTranslation } from "react-i18next";
 
 function Doctors() {
-  const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   // فلترة البيانات حسب التصنيف فقط بدون تقطيع صفحات
@@ -18,8 +17,8 @@ function Doctors() {
   return (
     <div>
       <Hero_about
-        title={t('doctors.hero.title', 'Meet Our Experts and Learn from Their Expertise')}
-        description={t('doctors.hero.description', 'The list of certified doctors with years of professional experiences')}
+        title="Meet Our Experts and Learn from Their Expertise"
+        description="The list of certified doctors with years of professional experiences"
         img={hero_img}
         reverseLayout={true}
       />

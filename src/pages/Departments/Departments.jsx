@@ -10,12 +10,11 @@ function Departments() {
   return (
     <div className="">
       <Hero_about
-        title={t("departments.hero_title")}
-        description={t("departments.hero_desc")}
-        img={hero}
-        reverseLayout={true}
+       titleKey="departments.hero_title"
+              descriptionKey="departments.hero_desc"
+             reverseLayout={true}
+              img={hero}
       />
-
       <div className="container">
         <div className="grid gap-10 px-4 md:grid-cols-3 sm:grid-cols-1">
           {DepartmentsData.map((item, index) => (
