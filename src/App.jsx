@@ -12,7 +12,7 @@ import Gallery from "./pages/Gallery/Gallery";
 import Departments from "./pages/Departments/Departments";
 import DepartmentDetails from "./pages/Departments/DepartmentDetails";
  
-import AdminLogin from "./components/AdminLogin";
+// import AdminLogin from "./components/AdminLogin";
  import Appointments from "./pages/Appointments/Appointments";
 import Timetable from "./pages/Timetable/Timetable";
 import ScrollToTop from "./ScrollToTop"; // Import ScrollToTop
@@ -41,7 +41,7 @@ function App() {
           <Route path="/department/:id" element={<DepartmentDetails />} />
           {/* Appointments */}
           <Route path="/appointments" element={<Appointments />} />
-           <Route path="/admin" element={<AdminLogin/>} />
+           {/* <Route path="/admin" element={<AdminLogin/>} /> */}
            {/* Timetable */}
           <Route path="/timetable" element={<Timetable />} />
           <Route path="/admin" element={<AdminAppointments />} />
