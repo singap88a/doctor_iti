@@ -12,10 +12,11 @@ function About() {
   return (
     <div>
       <Hero_about
-        title="Welcome to ProHealth Medical & Healthcare Center"
-        description="Your Partner in Health and Wellness"
-        img={hero}
-      />
+  titleKey="about.hero.title"
+  descriptionKey="about.hero.description"
+  reverseLayout={true}
+  img={hero}
+/>
       <Services />
       <Choose_Us />
       <Banner_About />

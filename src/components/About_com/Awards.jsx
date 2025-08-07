@@ -1,43 +1,27 @@
 import Departments from "../../assets/img_home/Departments_2.png";
+import { useTranslation } from "react-i18next";
 function Awards() {
+  const { t } = useTranslation();
   const Departmentss = [
-    {
-      title: "Malcolm Baldrige National Quality Award",
-      image: Departments,
-    },
-    {
-      title: "HIMSS Davies Award",
-      image: Departments,
-    },
-    { 
-      title: "Healthgrades National’s Best Hospital",
-      image: Departments,
-    },
-    {
-      title: "Joint Commission Gold Seal of Approval",
-      image: Departments,
-    },
-    {
-      title: "American Hospital Association (AHA) Award of Honor",
-      image: Departments, // Represents excellence in healthcare services
-    },
-    {
-      title: "Beacon Award for Excellence in Critical Care",
-      image: Departments, // Represents high standards in patient care
-    },
+    { title: t('about.awards.malcolm'), image: Departments },
+    { title: t('about.awards.himss'), image: Departments },
+    { title: t('about.awards.healthgrades'), image: Departments },
+    { title: t('about.awards.joint_commission'), image: Departments },
+    { title: t('about.awards.aha'), image: Departments },
+    { title: t('about.awards.beacon'), image: Departments },
   ];
   
   return (
     <div className="mb-[100px]">
       <section className="container ">
       <p className="text-xl font-semibold text-center text-secondary">
-          AWARDS
+          {t('about.awards.awards')}
         </p>
         <h1 className="text-3xl font-bold text-center text-text_color">
-          Winning Awards and Recognition 
+          {t('about.awards.winning_awards')}
         </h1>
         <p className="pt-5 pb-10 text-center text-Paragraph md:w-[30%] w-full mx-auto">
-          We have been recognized for our commitment to excellence in healthcare
+          {t('about.awards.recognized_commitment')}
         </p>
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           {Departmentss.map((item, index) => (

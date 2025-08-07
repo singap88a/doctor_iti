@@ -1,9 +1,11 @@
+import React from 'react';
 import Lottie from "lottie-react";
 import Choose_Us_anma from "../../Animation/Choose_Us.json";
 import { useTranslation } from "react-i18next";
 
 function Choose_Us() {
   const { t } = useTranslation();
+
   const Chooses = [
     {
       title: t('about.choose_us.experienced_professionals'),
@@ -40,13 +42,8 @@ function Choose_Us() {
             </h1>
             <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2">
               {Chooses.map((choose, index) => (
-                <div
-                  className="p-6 "
-                  key={index}
-                >
-                  <i
-                    className={`text-4xl mb-4 text-secondary ${choose.icon}`}
-                  ></i>
+                <div className="p-6" key={index}>
+                  <i className={`text-4xl mb-4 text-secondary ${choose.icon}`}></i>
                   <h2 className="mb-2 text-2xl font-bold text-text_color">
                     {choose.title}
                   </h2>
@@ -62,4 +59,3 @@ function Choose_Us() {
 }
 
 export default Choose_Us;
- 

@@ -1,12 +1,15 @@
+import React from 'react';
 import imge_1 from "../../assets/img_about/Experts_1.png";
 import imge_2 from "../../assets/img_about/Experts_2.png";
 import { useTranslation } from "react-i18next";
 
-function Experts_Doctor() {
+export default function Experts_Doctor() {
   const { t } = useTranslation();
+
   const Experts = [
     {
       image: imge_1,
+      title: t('about.experts.james_lee'),
       Job: t('about.experts.head_cardiologist'),
       Description: t('about.experts.head_cardiologist_desc'),
       icon: [
@@ -14,10 +17,10 @@ function Experts_Doctor() {
         { iconClass: "fa-brands fa-linkedin" },
         { iconClass: "fa-brands fa-twitter" },
       ],
-      title: t('about.experts.james_lee'),
     },
     {
       image: imge_2,
+      title: t('about.experts.john_smith'),
       Job: t('about.experts.emergency_physician'),
       Description: t('about.experts.emergency_physician_desc'),
       icon: [
@@ -25,10 +28,10 @@ function Experts_Doctor() {
         { iconClass: "fa-brands fa-linkedin" },
         { iconClass: "fa-brands fa-twitter" },
       ],
-      title: t('about.experts.john_smith'),
     },
     {
       image: imge_1,
+      title: t('about.experts.susan_bones'),
       Job: t('about.experts.pediatrician'),
       Description: t('about.experts.pediatrician_desc'),
       icon: [
@@ -36,7 +39,6 @@ function Experts_Doctor() {
         { iconClass: "fa-brands fa-linkedin" },
         { iconClass: "fa-brands fa-twitter" },
       ],
-      title: t('about.experts.susan_bones'),
     },
   ];
 
@@ -58,26 +60,17 @@ function Experts_Doctor() {
               key={index}
               className="w-full sm:w-[48%] lg:w-[30%] bg-white relative shadow-[0px_0px_5px_1px_#307ac448] hover:shadow-xl transition-shadow duration-300 rounded-[20px] text-center pt-20 px-10 pb-8"
             >
-              {/* Image */}
               <img
                 src={item.image}
                 alt={`Photo of ${item.title}`}
                 loading="lazy"
                 className="absolute m-auto top-[-110px] w-[200px] right-[25%]"
               />
-
-              {/* Title */}
               <h3 className="pt-4 text-lg font-bold text-text_color">
                 {item.title}
               </h3>
-
-              {/* Job */}
               <p className="py-2 text-xl text-text_color">{item.Job}</p>
-
-              {/* Description */}
               <p className="text-Paragraph">{item.Description}</p>
-
-              {/* Social Icons */}
               <div className="flex justify-center mt-4 space-x-4">
                 {item.icon.map((icon, i) => (
                   <a
@@ -95,6 +88,3 @@ function Experts_Doctor() {
     </div>
   );
 }
-
-export default Experts_Doctor;
- 
