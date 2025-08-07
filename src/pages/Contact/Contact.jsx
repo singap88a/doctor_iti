@@ -1,12 +1,12 @@
 import React from 'react'
-import Hero_about from "../../components/About_com/Hero_about";
-import hero from "../../assets/img_about/about_hero.png";
+ import hero from "../../assets/img_about/about_hero.png";
 import Form_Contact from "./Form_Contact";
 import Find_Contact from "./Find_Contact";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next";
+import Hero_about from '../../Components/About_com/Hero_about';
 
 export default function Contact() {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   return (
     <div className='page-contact'>
 

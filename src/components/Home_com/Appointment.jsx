@@ -1,9 +1,9 @@
-/* eslint-disable react/prop-types */
-import Lottie from "lottie-react";
+ import Lottie from "lottie-react";
 import Appointment_anm from "../../Animation/Appointment.json";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useTranslation } from "react-i18next";
 
 // Doctor options by department
 const DOCTORS_BY_DEPARTMENT = {
@@ -92,13 +92,16 @@ function Appointment({ reverseLayout }) {
       toast.error(err.message);
     }
   };
+  const { t } = useTranslation();
 
   return (
     <div className="mb-[100px]">
       <div className="container px-4 mx-auto">
-        <p className="mb-4 text-2xl font-semibold text-secondary">BOOK AN</p>
+        <p className="mb-4 text-2xl font-semibold text-secondary">                  {t("appointment.book_an")}
+</p>
         <h1 className="pb-16 text-5xl font-semibold text-text_color">
-          Appointment
+                  {t("appointment.title")}
+
         </h1>
         <div
           className={`flex items-center flex-col lg:gap-8 lg:items-start ${
@@ -110,7 +113,7 @@ function Appointment({ reverseLayout }) {
               <div className="flex flex-col gap-4 lg:flex-row">
                 <div className="w-full lg:w-1/2">
                   <label className="block pb-2 text-[16px] font-medium text-text_color">
-                    Name
+                  {t("appointment.form.name")}
                   </label>
                   <input
                     type="text"
@@ -124,7 +127,7 @@ function Appointment({ reverseLayout }) {
 
                 <div className="w-full lg:w-1/2">
                   <label className="block pb-2 text-[16px] font-medium text-text_color">
-                    Phone Number
+                  {t("appointment.form.phone")}
                   </label>
                   <input
                     type="tel"
@@ -139,7 +142,7 @@ function Appointment({ reverseLayout }) {
 
               <div>
                 <label className="block pb-2 text-[16px] font-medium text-text_color">
-                  Medical Record Number
+                  {t("appointment.form.medical_record")}
                 </label>
                 <input
                   type="text"
@@ -154,7 +157,7 @@ function Appointment({ reverseLayout }) {
               <div className="flex flex-col gap-4 lg:flex-row">
                 <div className="w-full lg:w-1/2">
                   <label className="block pb-2 text-[16px] font-medium text-text_color">
-                    Preferred Date
+                  {t("appointment.form.preferred_date")}
                   </label>
                   <input
                     type="date"
@@ -166,7 +169,7 @@ function Appointment({ reverseLayout }) {
                 </div>
                 <div className="w-full lg:w-1/2">
                   <label className="block pb-2 text-[16px] font-medium text-text_color">
-                    Preferred Time
+                  {t("appointment.form.preferred_time")}
                   </label>
                   <input
                     type="time"
@@ -180,7 +183,7 @@ function Appointment({ reverseLayout }) {
 
               <div>
                 <label className="block pb-2 text-[16px] font-medium text-text_color">
-                  Reason for Visit
+                  {t("appointment.form.reason_for_visit")}
                 </label>
                 <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
                   {["Routine Checkup", "New Patient Visit", "Specific Concern"].map((option) => (
@@ -201,7 +204,8 @@ function Appointment({ reverseLayout }) {
 
               <div>
                 <label className="block pb-2 text-[16px] font-medium text-text_color">
-                  Department
+                                    {t("appointment.form.department")}
+
                 </label>
                 <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
                   {Object.keys(DOCTORS_BY_DEPARTMENT).map((dept) => (

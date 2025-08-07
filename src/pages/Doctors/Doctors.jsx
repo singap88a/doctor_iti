@@ -1,9 +1,9 @@
 import hero_img from "../../assets/img_doctors/hero_doctors.png";
-import Hero_about from "../../components/About_com/Hero_about";
-import { useState } from "react";
+ import { useState } from "react";
 import { Link } from "react-router-dom";
 import tracksData from "./tracksData";
 import { useTranslation } from "react-i18next";
+import Hero_about from "../../Components/About_com/Hero_about";
 
 function Doctors() {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -17,11 +17,11 @@ function Doctors() {
 
   return (
     <div>
-      <Hero_about
-        title="Meet Our Experts and Learn from Their Expertise"
-        description="The list of certified doctors with years of professional experiences"
-        img={hero_img}
-        reverseLayout={true}
+<Hero_about
+      titleKey="doctors.hero.title"
+      descriptionKey="doctors.hero.description"
+      reverseLayout={true}
+      img={hero_img}
       />
 
       <div className="container">
