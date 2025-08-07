@@ -37,7 +37,7 @@ const Footer = () => {
       {/* المثلث العلوي */}
       <div className="absolute top-0 left-0 w-full -translate-y-full h-52">
         <div
-          className="absolute w-0 h-52 md:border-l-[49vw] md:border-l-[49vw] border-l-[50vw] border-l-transparent md:border-r-[49.9vw] border-r-[50vw] border-r-transparent border-b-[120px] border-b-blue-100"
+          className="absolute w-0 h-52  md:border-l-[49vw] border-l-[50vw] border-l-transparent md:border-r-[49.9vw] border-r-[50vw] border-r-transparent border-b-[120px] border-b-blue-100"
           style={{
             clipPath: "polygon(50% 0, 100% 100%, 0% 100%)",
           }}
