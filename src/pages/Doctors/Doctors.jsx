@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 
 function Doctors() {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const { t } = useTranslation();
 
   // فلترة البيانات حسب التصنيف فقط بدون تقطيع صفحات
   const filteredTracks =

@@ -10,9 +10,11 @@ export default function Contact() {
   return (
     <div className='page-contact'>
 
-      <Hero_about title="Contact Us"
-        description="Kindly reach us to get the fastest response and treatment"
+      <Hero_about
+        titleKey="contact.title"
+        descriptionKey="contact.description"
         img={hero}
+        reverseLayout={true}
       />
 
       <div className='container my-10'>

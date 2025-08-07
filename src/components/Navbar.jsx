@@ -111,7 +111,7 @@ function Navbar() {
               aria-label="Toggle language"
             >
               <div className="flex">
-                <GlobeAltIcon className="pl-1 w-6 h-6 text-white" />
+                <GlobeAltIcon className="w-6 h-6 pl-1 text-white" />
               {i18n.language === "en" ? "عربي" : "EN"}
               </div>
               
