@@ -44,7 +44,7 @@ function App() {
            <Route path="/admin" element={<AdminLogin/>} />
            {/* Timetable */}
           <Route path="/timetable" element={<Timetable />} />
-          <Route path="/AdminAppointments" element={<AdminAppointments />} />
+          <Route path="/Admin" element={<AdminAppointments />} />
           
           {/* Auth */}
             {/* Admin */}
