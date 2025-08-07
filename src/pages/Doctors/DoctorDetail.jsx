@@ -1,15 +1,50 @@
 import { useParams } from "react-router-dom";
-import tracksData from "./tracksData";
+import { useState, useEffect } from "react";
 import bg_hero from "../../assets/img_home/bg_hero.png";
 import Appointment from "../Appointments/Appointments";
 import { useTranslation } from "react-i18next";
+import { FaFacebook, FaTwitter, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 function DoctorDetails() {
   const { t } = useTranslation();
   const { id } = useParams();
-  const doctor = tracksData.find((track) => track.id === parseInt(id));
+  const [doctor, setDoctor] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  if (!doctor) {
-    return <h2 className="text-xl text-center">{t('doctors.doctor_not_found', 'Doctor not found')}</h2>;
+  useEffect(() => {
+    const fetchDoctor = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch(`https://backend-itiddoctor-395g.vercel.app/api/doctors/${id}`);
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        setDoctor(data.data);
+        setError(null);
+      } catch (err) {
+        console.error('Error fetching doctor details:', err);
+        setError('Failed to load doctor data');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchDoctor();
+  }, [id]);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-64">
+        <div className="text-xl text-secondary">Loading...</div>
+      </div>
+    );
+  }
+
+  if (error || !doctor) {
+    return <h2 className="text-xl text-center">{error || t('doctors.doctor_not_found', 'Doctor not found')}</h2>;
   }
 
   return (
@@ -24,10 +59,10 @@ function DoctorDetails() {
           <div className="w-full px-5 md:w-1/2">
             <div className="py-10 ">
               <h1 className="text-3xl font-bold text-text_color">
-                {t(`doctors.data.${doctor.id}.title`, doctor.title)}
+                {doctor.title}
               </h1>
-              <h3 className="text-xl text-text_color">{t(`doctors.data.${doctor.id}.job`, doctor.Job)}</h3>
-              <p className="mt-3 text-text_color">{t(`doctors.data.${doctor.id}.description`, doctor.description)}</p>
+              <h3 className="text-xl text-text_color">{doctor.job}</h3>
+              <p className="mt-3 text-text_color">{doctor.description}</p>
             </div>
           </div>
         </div>
@@ -43,10 +78,10 @@ function DoctorDetails() {
               <img
                 src={doctor.image}
                 alt={doctor.title}
-                className="object-cover shadow-lg rounded-t-md md:w-[100%] w-full bg-white "
+                className="object-cover shadow-lg rounded-t-md md:w-[100%] w-full h-[300px] bg-white "
               />
               <h1 className="p-2 text-center text-white rounded-b-md bg-secondary md:w-[100%] w-full">
-                {t(`doctors.data.${doctor.id}.department`, doctor.Department)}
+                {doctor.departmentName}
               </h1>
             </div>
 
@@ -60,13 +95,13 @@ function DoctorDetails() {
               <p className="flex items-center gap-3 py-3">
                 <i className="text-[#77b1c8] fa-solid fa-phone-volume"></i>
                 <h1 className="font-medium text-text_color">
-                  {t(`doctors.data.${doctor.id}.contactInfo.phone`, doctor.contactInfo.phone)}
+                  {doctor.contactInfo.phone}
                 </h1>
               </p>
               <p className="flex items-center gap-3">
                 <i className="text-[#77b1c8] fa-solid fa-solid fa-envelope"></i>
                 <h1 className="font-medium text-text_color">
-                  {t(`doctors.data.${doctor.id}.contactInfo.email`, doctor.contactInfo.email)}
+                  {doctor.contactInfo.email}
                 </h1>
               </p>
             </div>
@@ -83,13 +118,13 @@ function DoctorDetails() {
                     <div className="flex justify-between pb-2">
                       <p className="font-semibold text-text_color">
                         {" "}
-                        {t(`doctors.data.${doctor.id}.appointmentSchedules.${index}.day`, schedule.day)}
+                        {schedule.day}
                       </p>
 
                       <p className="font-semibold text-text_color">
                         {" "}
                         <i className="fa-regular fa-clock text-secondary"></i>{" "}
-                        {t(`doctors.data.${doctor.id}.appointmentSchedules.${index}.time`, schedule.time)}
+                        {schedule.time}
                       </p>
                     </div>
                   </h1>
@@ -111,9 +146,9 @@ function DoctorDetails() {
                   <li key={index} className="ml-10 text-3xl text-secondary">
                     <h1 className="text-xl text-text_color">
                       {t('doctors.degree_format', '{{degree}} from {{institution}} ({{year}})', {
-                        degree: t(`doctors.data.${doctor.id}.degrees.${index}.degree`, degree.degree),
-                        institution: t(`doctors.data.${doctor.id}.degrees.${index}.institution`, degree.institution),
-                        year: t(`doctors.data.${doctor.id}.degrees.${index}.year`, degree.year)
+                        degree: degree.degree,
+                        institution: degree.institution,
+                        year: degree.year
                       })}
                     </h1>
                   </li>
@@ -132,9 +167,9 @@ function DoctorDetails() {
                   <li key={index} className="ml-10 text-3xl text-secondary">
                     <h1 className="text-xl text-text_color">
                       {t('doctors.experience_format', '{{position}} at {{hospital}} ({{years}} years)', {
-                        position: t(`doctors.data.${doctor.id}.experiences.${index}.position`, experience.position),
-                        hospital: t(`doctors.data.${doctor.id}.experiences.${index}.hospital`, experience.hospital),
-                        years: t(`doctors.data.${doctor.id}.experiences.${index}.years`, experience.years)
+                        position: experience.position,
+                        hospital: experience.hospital,
+                        years: experience.years
                       })}
                     </h1>
                   </li>
@@ -149,12 +184,12 @@ function DoctorDetails() {
                 {t('doctors.awards', 'Awards & Achievements:')}              
               </h3>
               <ul className="pl-6 list-disc">
-                {doctor.awards.map((award, index) => (
+                {doctor.awards && doctor.awards.map((award, index) => (
                   <li key={index} className="ml-10 text-3xl text-secondary">
                     <h1 className="text-xl text-text_color">
                       {t('doctors.award_format', '{{award}} ({{year}})', {
-                        award: t(`doctors.data.${doctor.id}.awards.${index}.award`, award.award),
-                        year: t(`doctors.data.${doctor.id}.awards.${index}.year`, award.year)
+                        award: award.award,
+                        year: award.year
                       })}
                     </h1>
                   </li>
@@ -164,15 +199,39 @@ function DoctorDetails() {
 
             {/* Social Icons */}
             <div className="flex justify-center w-[35%] px-3 py-2 mt-10 ml-16 space-x-4 rounded-md bg-secondary">
-              {doctor.icon.map((icon, i) => (
-                <a
-                  key={i}
-                  href="https://wa.me/<>?text=<الرسالة>"
-                  className="text-2xl text-white transition-colors duration-300 hover:text-slate-700"
-                >
-                  <i className={icon.iconClass}></i>
-                </a>
-              ))}
+              {doctor.socialMedia && Object.entries(doctor.socialMedia).map(([platform, url], i) => {
+                if (!url) return null;
+                let Icon = null;
+                
+                switch(platform) {
+                  case 'facebook':
+                    Icon = FaFacebook;
+                    break;
+                  case 'twitter':
+                    Icon = FaTwitter;
+                    break;
+                  case 'linkedin':
+                    Icon = FaLinkedin;
+                    break;
+                  case 'whatsapp':
+                    Icon = FaWhatsapp;
+                    break;
+                  default:
+                    return null;
+                }
+                
+                return (
+                  <a
+                    key={i}
+                    href={url || '#'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center text-2xl text-white transition-colors duration-300 hover:text-slate-700"
+                  >
+                    <Icon />
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>
