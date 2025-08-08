@@ -66,6 +66,9 @@ const DoctorManagement = () => {
         canvas.width = width;
         canvas.height = height;
         const ctx = canvas.getContext('2d');
+        // Fill canvas with white background first
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(0, 0, width, height);
         ctx.drawImage(img, 0, 0, width, height);
         
         const dataUrl = canvas.toDataURL('image/jpeg', 0.7);
@@ -344,7 +347,8 @@ const DoctorManagement = () => {
                   <img 
                     src={formData.image} 
                     alt="Doctor preview" 
-                    className="mx-auto max-h-40"
+                    className="mx-auto bg-white max-h-40"
+                    style={{ backgroundColor: '#FFFFFF' }}
                   />
                   <p className="mt-2 text-sm text-gray-500">اسحب صورة أخرى هنا أو انقر للتغيير</p>
                 </div>

@@ -102,7 +102,7 @@ const DepartmentManagement = () => {
                 name="icon"
                 value={formData.icon}
                 onChange={handleChange}
-                className="w-full p-2 border rounded"
+                className="p-2 w-full rounded border"
                 placeholder="fa-solid fa-hospital"
                 required
               />
@@ -114,7 +114,7 @@ const DepartmentManagement = () => {
                 name="title"
                 value={formData.title}
                 onChange={handleChange}
-                className="w-full p-2 border rounded"
+                className="p-2 w-full rounded border"
                 placeholder="Department Title"
                 required
               />
@@ -126,7 +126,7 @@ const DepartmentManagement = () => {
               name="description"
               value={formData.description}
               onChange={handleChange}
-              className="w-full p-2 border rounded"
+              className="p-2 w-full rounded border"
               rows="3"
               placeholder="Department Description"
               required
@@ -139,7 +139,7 @@ const DepartmentManagement = () => {
               name="hero_img"
               value={formData.hero_img}
               onChange={handleChange}
-              className="w-full p-2 border rounded"
+              className="p-2 w-full rounded border"
               placeholder="Image URL"
             />
           </div>
