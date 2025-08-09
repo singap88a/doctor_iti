@@ -16,7 +16,7 @@ import DepartmentDetails from "./pages/Departments/DepartmentDetails";
 import Appointments from "./pages/Appointments/Appointments";
 import Timetable from "./pages/Timetable/Timetable";
 import ScrollToTop from "./ScrollToTop"; // Import ScrollToTop
-import AdminAppointments from "./pages/admin_doctors/admin_appointment";
+import AppointmentManagement from "./pages/admin/AppointmentManagement";
 
 // Admin Dashboard Pages
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -49,7 +49,7 @@ function App() {
           {/* <Route path="/admin" element={<AdminLogin/>} /> */}
           {/* Timetable */}
           <Route path="/timetable" element={<Timetable />} />
-          <Route path="/admin/appointments" element={<AdminAppointments />} />
+          <Route path="/admin/appointments" element={<AppointmentManagement />} />
 
           {/* Admin Dashboard Routes */}
           <Route path="/admin" element={<AdminDashboard />} />
