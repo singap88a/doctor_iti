@@ -6,7 +6,8 @@ import Hero_about from "../../components/About_com/Hero_about";
 import { FaFacebook, FaTwitter, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 
 function Doctors() {
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState("الكل");
+  const [departments, setDepartments] = useState([]);
   const [doctors, setDoctors] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -24,6 +25,13 @@ function Doctors() {
         
         const data = await response.json();
         setDoctors(data.data);
+
+         const uniqueDepartments = [
+        ...new Set(data.data.map(doc => doc.department?.title))
+      ];
+      setDepartments(uniqueDepartments);
+
+
         setError(null);
       } catch (err) {
         console.error('Error fetching doctors:', err);
@@ -38,13 +46,13 @@ function Doctors() {
 
   // فلترة البيانات حسب التصنيف فقط بدون تقطيع صفحات
   const filteredTracks =
-    selectedCategory === "All"
+    selectedCategory === "الكل"
       ? doctors
-      : doctors.filter((doctor) => doctor.category === selectedCategory);
+      : doctors.filter((doctor) => doctor.department?.title === selectedCategory);
 
   return (
     <div>
-<Hero_about
+      <Hero_about
       titleKey="doctors.hero.title"
       descriptionKey="doctors.hero.description"
       reverseLayout={true}
@@ -54,25 +62,30 @@ function Doctors() {
       <div className="container">
         {/* أزرار التصنيف */}
         <div className="flex flex-wrap justify-center gap-2 my-6 space-x-4">
-          {[
-            { key: "All", label: t('doctors.categories.all', 'All') },
-            { key: "Emergency", label: t('doctors.categories.emergency', 'Emergency') },
-            { key: "Dermatology", label: t('doctors.categories.dermatology', 'Dermatology') },
-            { key: "Pediatric", label: t('doctors.categories.pediatric', 'Pediatric') },
-            { key: "Orthopedic", label: t('doctors.categories.orthopedic', 'Orthopedic') },
-            { key: "Neurology", label: t('doctors.categories.neurology', 'Neurology') },
-          ].map((category) => (
-            <button
-              key={category.key}
-              className={`px-4 py-1 rounded-[20px] border-2 border-secondary ${selectedCategory === category.key
-                  ? "bg-secondary text-white"
-                  : "hover:bg-[#3c89cd3e] transition-all"
-                }  py-2 px-2`}
-              onClick={() => setSelectedCategory(category.key)}
-            >
-              {category.label}
+          <button
+             className={`px-4 py-1 rounded-[20px] border-2 border-secondary ${
+             selectedCategory === "الكل"
+               ? "bg-secondary text-white"
+               : "hover:bg-[#3c89cd3e] transition-all"
+              }`}
+              onClick={() => setSelectedCategory("الكل")}
+             >
+              الكل
+             </button>
+
+           {departments.map((dept, idx) => (
+           <button
+              key={idx}
+             className={`px-4 py-1 rounded-[20px] border-2 border-secondary ${
+             selectedCategory === dept
+              ? "bg-secondary text-white"
+              : "hover:bg-[#3c89cd3e] transition-all"
+             }`}
+               onClick={() => setSelectedCategory(dept)}
+             >
+               {dept}
             </button>
-          ))}
+  ))}
         </div>
 
         {/* كروت الأطباء */}
