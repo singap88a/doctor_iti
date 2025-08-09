@@ -123,7 +123,7 @@ function Appointment({ reverseLayout }) {
 
   if (loadingDepartments) {
     return (
-      <div className="container mx-auto p-4">
+      <div className="container p-4 mx-auto">
         <p>Loading departments...</p>
       </div>
     );
