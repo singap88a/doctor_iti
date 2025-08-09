@@ -54,7 +54,7 @@ export default function Experts_Doctor() {
         </h2>
 
         {/* Cards Section */}
-        <div className="flex flex-wrap justify-center md:gap-10 gap-36">
+        <div className="flex flex-wrap justify-center lg:gap-10 md:gap-25 gap-36">
           {Experts.map((item, index) => (
             <article
               key={index}
