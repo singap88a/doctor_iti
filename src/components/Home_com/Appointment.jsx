@@ -1,18 +1,9 @@
- import Lottie from "lottie-react";
+import Lottie from "lottie-react";
 import Appointment_anm from "../../Animation/Appointment.json";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useTranslation } from "react-i18next";
-
-// Doctor options by department
-const DOCTORS_BY_DEPARTMENT = {
-  Pediatric: ["Dr. Smith", "Dr. Johnson", "Dr. Williams"],
-  "Obstetrics and Gynecology": ["Dr. Brown", "Dr. Jones", "Dr. Garcia"],
-  Cardiology: ["Dr. Miller", "Dr. Davis", "Dr. Rodriguez"],
-  Neurology: ["Dr. Martinez", "Dr. Hernandez", "Dr. Lopez"],
-  Emergency: ["Dr. Gonzalez", "Dr. Wilson", "Dr. Anderson"]
-};
 
 function Appointment({ reverseLayout }) {
   const [formData, setFormData] = useState({
@@ -25,7 +16,48 @@ function Appointment({ reverseLayout }) {
     department: "",
     doctor: ""
   });
+  const [departments, setDepartments] = useState([]);
   const [availableDoctors, setAvailableDoctors] = useState([]);
+  const [loadingDepartments, setLoadingDepartments] = useState(true);
+  const [loadingDoctors, setLoadingDoctors] = useState(false);
+
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    setLoadingDepartments(true);
+    fetch("https://backend-itiddoctor-395g.vercel.app/api/departments")
+      .then(res => res.json())
+      .then(data => {
+       
+        setDepartments(data.data || []);
+        setLoadingDepartments(false);
+      })
+      .catch(err => {
+        console.error("Error fetching departments:", err);
+        toast.error("Failed to load departments");
+        setLoadingDepartments(false);
+      });
+  }, []);
+
+  useEffect(() => {
+    if (formData.department) {
+      setLoadingDoctors(true);
+      fetch(`https://backend-itiddoctor-395g.vercel.app/api/doctors?department=${formData.department}`)
+        .then(res => res.json())
+        .then(data => {
+          setAvailableDoctors(data.data || []);
+          setLoadingDoctors(false);
+        })
+        .catch(err => {
+          console.error("Error fetching doctors:", err);
+          toast.error("Failed to load doctors");
+          setAvailableDoctors([]);
+          setLoadingDoctors(false);
+        });
+    } else {
+      setAvailableDoctors([]);
+    }
+  }, [formData.department]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,17 +66,14 @@ function Appointment({ reverseLayout }) {
       [name]: value
     }));
 
-    // Update available doctors when department changes
     if (name === "department") {
-      setAvailableDoctors(DOCTORS_BY_DEPARTMENT[value] || []);
-      setFormData(prev => ({ ...prev, doctor: "" })); // Reset doctor selection
+      setFormData(prev => ({ ...prev, doctor: "" }));
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate required fields
     if (
       !formData.name ||
       !formData.phone ||
@@ -75,8 +104,7 @@ function Appointment({ reverseLayout }) {
       }
 
       toast.success("Appointment booked successfully!");
-      
-      // Reset form
+
       setFormData({
         name: "",
         phone: "",
@@ -92,16 +120,23 @@ function Appointment({ reverseLayout }) {
       toast.error(err.message);
     }
   };
-  const { t } = useTranslation();
+
+  if (loadingDepartments) {
+    return (
+      <div className="container mx-auto p-4">
+        <p>Loading departments...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="mb-[100px]">
       <div className="container px-4 mx-auto">
-        <p className="mb-4 text-2xl font-semibold text-secondary">                  {t("appointment.book_an")}
-</p>
+        <p className="mb-4 text-2xl font-semibold text-secondary">
+          {t("appointment.book_an")}
+        </p>
         <h1 className="pb-16 text-5xl font-semibold text-text_color">
-                  {t("appointment.title")}
-
+          {t("appointment.title")}
         </h1>
         <div
           className={`flex items-center flex-col lg:gap-8 lg:items-start ${
@@ -110,10 +145,13 @@ function Appointment({ reverseLayout }) {
         >
           <div className="w-full lg:w-1/2">
             <form className="space-y-6" onSubmit={handleSubmit}>
+
+              {/* باقي الفورم زي ما هو */}
+
               <div className="flex flex-col gap-4 lg:flex-row">
                 <div className="w-full lg:w-1/2">
                   <label className="block pb-2 text-[16px] font-medium text-text_color">
-                  {t("appointment.form.name")}
+                    {t("appointment.form.name")}
                   </label>
                   <input
                     type="text"
@@ -127,7 +165,7 @@ function Appointment({ reverseLayout }) {
 
                 <div className="w-full lg:w-1/2">
                   <label className="block pb-2 text-[16px] font-medium text-text_color">
-                  {t("appointment.form.phone")}
+                    {t("appointment.form.phone")}
                   </label>
                   <input
                     type="tel"
@@ -157,7 +195,7 @@ function Appointment({ reverseLayout }) {
               <div className="flex flex-col gap-4 lg:flex-row">
                 <div className="w-full lg:w-1/2">
                   <label className="block pb-2 text-[16px] font-medium text-text_color">
-                  {t("appointment.form.preferred_date")}
+                    {t("appointment.form.preferred_date")}
                   </label>
                   <input
                     type="date"
@@ -169,7 +207,7 @@ function Appointment({ reverseLayout }) {
                 </div>
                 <div className="w-full lg:w-1/2">
                   <label className="block pb-2 text-[16px] font-medium text-text_color">
-                  {t("appointment.form.preferred_time")}
+                    {t("appointment.form.preferred_time")}
                   </label>
                   <input
                     type="time"
@@ -204,21 +242,20 @@ function Appointment({ reverseLayout }) {
 
               <div>
                 <label className="block pb-2 text-[16px] font-medium text-text_color">
-                                    {t("appointment.form.department")}
-
+                  {t("appointment.form.department")}
                 </label>
                 <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-                  {Object.keys(DOCTORS_BY_DEPARTMENT).map((dept) => (
-                    <label key={dept} className="flex items-center text-gray-600">
+                  {departments.map((dept) => (
+                    <label key={dept._id} className="flex items-center text-gray-600">
                       <input
                         type="radio"
                         name="department"
-                        value={dept}
+                        value={dept._id}
                         className="mr-2"
-                        checked={formData.department === dept}
+                        checked={formData.department === dept._id}
                         onChange={handleChange}
                       />
-                      {dept}
+                      {dept.title}
                     </label>
                   ))}
                 </div>
@@ -229,20 +266,24 @@ function Appointment({ reverseLayout }) {
                   <label className="block pb-2 text-[16px] font-medium text-text_color">
                     Select Doctor
                   </label>
-                  <select
-                    name="doctor"
-                    className="w-full p-2 border rounded-md border-secondary"
-                    value={formData.doctor}
-                    onChange={handleChange}
-                    required
-                  >
-                    <option value="">Select a doctor</option>
-                    {availableDoctors.map((doctor) => (
-                      <option key={doctor} value={doctor}>
-                        {doctor}
-                      </option>
-                    ))}
-                  </select>
+                  {loadingDoctors ? (
+                    <p>Loading doctors...</p>
+                  ) : (
+                    <select
+                      name="doctor"
+                      className="w-full p-2 border rounded-md border-secondary"
+                      value={formData.doctor}
+                      onChange={handleChange}
+                      required
+                    >
+                      <option value="">Select a doctor</option>
+                      {availableDoctors.map((doctor) => (
+                        <option key={doctor._id} value={doctor._id}>
+                          {doctor.title}
+                        </option>
+                      ))}
+                    </select>
+                  )}
                 </div>
               )}
 
@@ -266,3 +307,4 @@ function Appointment({ reverseLayout }) {
 }
 
 export default Appointment;
+
