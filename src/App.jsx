@@ -1,5 +1,4 @@
 import "./App.css";
-
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
@@ -11,54 +10,74 @@ import DoctorDetails from "./pages/Doctors/DoctorDetail";
 import Gallery from "./pages/Gallery/Gallery";
 import Departments from "./pages/Departments/Departments";
 import DepartmentDetails from "./pages/Departments/DepartmentDetails";
-
-// import AdminLogin from "./components/AdminLogin";
 import Appointments from "./pages/Appointments/Appointments";
 import Timetable from "./pages/Timetable/Timetable";
-import ScrollToTop from "./ScrollToTop"; // Import ScrollToTop
+import ScrollToTop from "./ScrollToTop";
 import AppointmentManagement from "./pages/admin/AppointmentManagement";
 
 // Admin Dashboard Pages
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import DepartmentManagement from "./pages/admin/DepartmentManagement";
 import DoctorManagement from "./pages/admin/DoctorManagement";
-
-// import DoctorDetail from "./pages/Doctors/DoctorDetail";
+import Login from "./pages/Login";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <ScrollToTop /> {/* Add ScrollToTop here */}
-
+        <ScrollToTop />
         <Navbar />
 
         <Routes>
+          {/* Public Routes */}
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-
           <Route path="/doctor" element={<Doctors />} />
-          <Route path="/doctor/:id" element={<DoctorDetails />} />{" "}
-          {/* This route will handle doctor details */}
+          <Route path="/doctor/:id" element={<DoctorDetails />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/departments" element={<Departments />} />
           <Route path="/department/:id" element={<DepartmentDetails />} />
-          {/* Appointments */}
           <Route path="/appointments" element={<Appointments />} />
-          {/* <Route path="/admin" element={<AdminLogin/>} /> */}
-          {/* Timetable */}
           <Route path="/timetable" element={<Timetable />} />
-          <Route path="/admin/appointments" element={<AppointmentManagement />} />
+          <Route path="/login" element={<Login />} />
 
-          {/* Admin Dashboard Routes */}
-          <Route path="/admin" element={<AdminDashboard />} />
-          <Route path="/admin/departments" element={<DepartmentManagement />} />
-          <Route path="/admin/doctors" element={<DoctorManagement />} />
-
-          {/* Auth */}
-          {/* Admin */}
+          {/* Admin Protected Routes */}
+          <Route
+            path="/admin"
+            element={
+              <PrivateRoute>
+                <AdminDashboard />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/admin/appointments"
+            element={
+              <PrivateRoute>
+                <AppointmentManagement />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/admin/departments"
+            element={
+              <PrivateRoute>
+                <DepartmentManagement />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/admin/doctors"
+            element={
+              <PrivateRoute>
+                <DoctorManagement />
+              </PrivateRoute>
+            }
+          />
         </Routes>
+
         <Footer />
       </Router>
     </div>
