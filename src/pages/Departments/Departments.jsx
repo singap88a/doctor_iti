@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 import axios from 'axios';
 
 function Departments() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [departments, setDepartments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -21,7 +21,7 @@ function Departments() {
         setLoading(false);
       } catch (err) {
         console.error('Error fetching departments:', err);
-        setError('Failed to load departments');
+        setError(t('departments.fetch_error', { defaultValue: 'Failed to load departments' }));
         setLoading(false);
         
         // Fallback to static data if API fails
@@ -32,18 +32,31 @@ function Departments() {
     fetchDepartments();
   }, []);
 
+  // دالة لاستخراج النص المترجم حسب اللغة الحالية
+  const getTranslatedText = (item, field) => {
+    if (item.translations) {
+      // إذا كان هناك ترجمات مخزنة في الخادم
+      return item.translations[i18n.language]?.[field] || 
+             item.translations.en?.[field] || 
+             item[field];
+    }
+    // إذا لم يكن هناك ترجمات، استخدم القيمة المباشرة مع الترجمة
+    return t(`departments.${item.id}.${field}`, { defaultValue: item[field] });
+  };
+
   return (
     <div className="">
       <Hero_about
-        titleKey="departments.hero_title"
-        descriptionKey="departments.hero_desc"
+        title={t('departments.hero_title', { defaultValue: 'Our Medical Departments' })}
+        description={t('departments.hero_desc', { defaultValue: 'Explore our specialized medical departments and find the right care for you' })}
         reverseLayout={true}
         img={hero}
       />
+      
       <div className="container">
         {loading ? (
           <div className="flex items-center justify-center py-10">
-            <p className="text-xl">Loading departments...</p>
+            <p className="text-xl">{t('departments.loading', { defaultValue: 'Loading departments...' })}</p>
           </div>
         ) : error && departments.length === 0 ? (
           <div className="flex items-center justify-center py-10">
@@ -56,9 +69,11 @@ function Departments() {
                 <div className="py-4 px-6 relative transition-shadow bg-white rounded-2xl shadow-[0px_0px_20px_1px_#307ac448] hover:shadow-[0px_0px_20px_10px_#307ac448] h-[100%]">
                   <i className={`${item.icon} text-3xl text-secondary rounded-full h-16 w-16 border border-1 border-secondary flex justify-center items-center`}></i>
                   <h3 className="py-2 text-2xl font-bold text-text_color">
-                    {t(item.title)}
+                    {getTranslatedText(item, 'title')}
                   </h3>
-                  <p className="pb-6 text-sm text-gray-500">{t(item.description)}</p>
+                  <p className="pb-6 text-sm text-gray-500">
+                    {getTranslatedText(item, 'description')}
+                  </p>
                   
                   <div className="absolute bottom-0 right-0 px-4 py-1 rounded-br-2xl rounded-tl-md bg-secondary">
                     <i className="text-white fa-solid fa-arrow-right"></i>

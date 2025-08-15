@@ -1165,5 +1165,19 @@
         ]
       }
     }
-  }
+  },
+ 
+  "departmentManagement": "Department Management",
+  "addDepartment": "Add Department",
+  "editDepartment": "Edit Department",
+  "saveError": "Failed to save department",
+  "fetchError": "Failed to load departments",
+  "deleteError": "Failed to delete department",
+  "departmentAdded": "Department added successfully",
+  "departmentUpdated": "Department updated successfully",
+  "departmentDeleted": "Department deleted successfully",
+  "auth": {
+    "forbidden": "You don't have permission to perform this action"
+  
+}
 }

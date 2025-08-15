@@ -1,41 +1,63 @@
 import axios from 'axios';
 import { API_URL } from '../config';
 
+// إنشاء نسخة مخصصة من axios مع إعدادات افتراضية
+const api = axios.create({
+  baseURL: API_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  }
+});
+
+// إضافة interceptor لإرفاق token المصادقة تلقائياً
+api.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
 const DepartmentService = {
-  // Get all departments
   getAllDepartments: async () => {
     try {
-      const response = await axios.get(`${API_URL}/departments`);
+      const response = await api.get('/departments');
       return response.data.data;
     } catch (error) {
       throw error;
     }
   },
 
-  // Create new department
   createDepartment: async (departmentData) => {
     try {
-      const response = await axios.post(`${API_URL}/departments`, departmentData);
+      const response = await api.post('/departments', departmentData);
       return response.data;
     } catch (error) {
+      // تحسين عرض رسالة الخطأ
+      if (error.response?.data?.message) {
+        error.message = error.response.data.message;
+      }
       throw error;
     }
   },
 
-  // Update department
   updateDepartment: async (id, departmentData) => {
     try {
-      const response = await axios.put(`${API_URL}/departments/${id}`, departmentData);
+      const response = await api.put(`/departments/${id}`, departmentData);
       return response.data;
     } catch (error) {
       throw error;
     }
   },
 
-  // Delete department
   deleteDepartment: async (id) => {
     try {
-      const response = await axios.delete(`${API_URL}/departments/${id}`);
+      const response = await api.delete(`/departments/${id}`);
       return response.data;
     } catch (error) {
       throw error;

@@ -1,4 +1,4 @@
 // API Configuration
-const API_URL = 'https://backend-itiddoctor-395g.vercel.app/api';
+const API_URL = 'http://localhost:5000/api';
 
 export { API_URL };

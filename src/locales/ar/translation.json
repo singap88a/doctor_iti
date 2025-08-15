@@ -1169,5 +1169,19 @@
       
       
     }
+  },
+ 
+  "departmentManagement": "إدارة الأقسام",
+  "addDepartment": "إضافة قسم جديد",
+  "editDepartment": "تعديل القسم",
+  "saveError": "فشل حفظ القسم",
+  "fetchError": "فشل تحميل الأقسام",
+  "deleteError": "فشل حذف القسم",
+  "departmentAdded": "تم إضافة القسم بنجاح",
+  "departmentUpdated": "تم تحديث القسم بنجاح",
+  "departmentDeleted": "تم حذف القسم بنجاح",
+  "auth": {
+    "forbidden": "ليس لديك صلاحية للقيام بهذا الإجراء"
   }
+ 
 }

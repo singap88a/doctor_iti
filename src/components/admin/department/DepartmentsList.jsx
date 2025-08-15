@@ -1,22 +1,25 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
-const DepartmentsList = ({ departments, loading, handleEdit, handleDelete }) => {
+const DepartmentsList = ({ departments, loading, handleEdit, handleDelete, currentLanguage }) => {
+  const { t } = useTranslation();
+
   return (
     <div className="p-6 bg-white rounded-lg shadow-md">
-      <h2 className="mb-4 text-xl font-semibold">Departments List</h2>
+      <h2 className="mb-4 text-xl font-semibold">{t('departmentsList')}</h2>
       {loading ? (
-        <p>Loading departments...</p>
+        <p>{t('loading')}</p>
       ) : departments.length === 0 ? (
-        <p>No departments found.</p>
+        <p>{t('noDepartments')}</p>
       ) : (
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white">
             <thead>
               <tr>
-                <th className="px-4 py-2 border-b">Icon</th>
-                <th className="px-4 py-2 border-b">Title</th>
-                <th className="px-4 py-2 border-b">Description</th>
-                <th className="px-4 py-2 border-b">Actions</th>
+                <th className="px-4 py-2 border-b">{t('iconClass')}</th>
+                <th className="px-4 py-2 border-b">{t('departmentTitle')}</th>
+                <th className="px-4 py-2 border-b">{t('departmentDescription')}</th>
+                <th className="px-4 py-2 border-b">{t('actions')}</th>
               </tr>
             </thead>
             <tbody>
@@ -25,24 +28,29 @@ const DepartmentsList = ({ departments, loading, handleEdit, handleDelete }) => 
                   <td className="px-4 py-2 text-center border-b">
                     <i className={`${department.icon} text-secondary`}></i>
                   </td>
-                  <td className="px-4 py-2 border-b">{department.title}</td>
                   <td className="px-4 py-2 border-b">
-                    {department.description.length > 50
-                      ? `${department.description.substring(0, 50)}...`
-                      : department.description}
+                    {department.translations?.[currentLanguage]?.title || department.translations?.en?.title}
+                  </td>
+                  <td className="px-4 py-2 border-b">
+                    {department.translations?.[currentLanguage]?.description?.substring(0, 50) || 
+                     department.translations?.en?.description?.substring(0, 50)}...
                   </td>
                   <td className="px-4 py-2 border-b">
                     <button
                       onClick={() => handleEdit(department)}
                       className="px-3 py-1 mr-2 text-white bg-blue-500 rounded"
                     >
-                      Edit
+                      {t('edit')}
                     </button>
                     <button
-                      onClick={() => handleDelete(department._id)}
+                      onClick={() => {
+                        if (window.confirm(t('confirmDelete'))) {
+                          handleDelete(department._id);
+                        }
+                      }}
                       className="px-3 py-1 text-white bg-red-500 rounded"
                     >
-                      Delete
+                      {t('delete')}
                     </button>
                   </td>
                 </tr>
