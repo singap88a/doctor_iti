@@ -12,7 +12,6 @@ const AppointmentManagement = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // جلب جميع البيانات في نفس الوقت
         const [apptsRes, deptsRes, docsRes] = await Promise.all([
           fetch('https://backend-itiddoctor-395g.vercel.app/api/appointments'),
           fetch('https://backend-itiddoctor-395g.vercel.app/api/departments'),
@@ -42,16 +41,18 @@ const AppointmentManagement = () => {
     fetchData();
   }, []);
 
-  // دالة للحصول على اسم القسم بناءً على الـ ID
+  // ✅ جلب اسم القسم بالـ ID
   const getDepartmentName = (id) => {
+    if (!id) return 'Unknown Department';
     const dept = departments.find(d => d._id === id);
-    return dept ? dept.title : 'Unknown Department';
+    return dept?.translations?.en?.title || dept?.title || 'Unknown Department';
   };
 
-  // دالة للحصول على اسم الطبيب بناءً على الـ ID
+  // ✅ جلب اسم الدكتور بالـ ID
   const getDoctorName = (id) => {
+    if (!id) return 'Unknown Doctor';
     const doc = doctors.find(d => d._id === id);
-    return doc ? doc.title : 'Unknown Doctor';
+    return doc?.translations?.en?.name || doc?.name || 'Unknown Doctor';
   };
 
   const handleStatusChange = async (id, newStatus) => {
@@ -124,12 +125,12 @@ const AppointmentManagement = () => {
           <tbody>
             {filteredAppointments.length > 0 ? (
               filteredAppointments.map((appointment) => {
-                // التعامل مع البيانات القديمة والجديدة
-                const departmentId = typeof appointment.department === 'object' 
-                  ? appointment.department.id 
+                // ✅ التعامل مع الـ IDs بشكل صحيح
+                const departmentId = typeof appointment.department === 'object'
+                  ? appointment.department._id || appointment.department.id
                   : appointment.department;
-                const doctorId = typeof appointment.doctor === 'object' 
-                  ? appointment.doctor.id 
+                const doctorId = typeof appointment.doctor === 'object'
+                  ? appointment.doctor._id || appointment.doctor.id
                   : appointment.doctor;
 
                 return (

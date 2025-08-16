@@ -21,14 +21,15 @@ function Appointment({ reverseLayout }) {
   const [loadingDepartments, setLoadingDepartments] = useState(true);
   const [loadingDoctors, setLoadingDoctors] = useState(false);
 
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLang = i18n.language || "en";
 
+  // 🔹 جلب الأقسام
   useEffect(() => {
     setLoadingDepartments(true);
     fetch("https://backend-itiddoctor-395g.vercel.app/api/departments")
       .then(res => res.json())
       .then(data => {
-       
         setDepartments(data.data || []);
         setLoadingDepartments(false);
       })
@@ -39,13 +40,18 @@ function Appointment({ reverseLayout }) {
       });
   }, []);
 
+  // 🔹 جلب الدكاترة الخاصة بالقسم
   useEffect(() => {
     if (formData.department) {
       setLoadingDoctors(true);
       fetch(`https://backend-itiddoctor-395g.vercel.app/api/doctors?department=${formData.department}`)
         .then(res => res.json())
         .then(data => {
-          setAvailableDoctors(data.data || []);
+          // فلترة بحيث يظهروا دكاترة القسم فقط
+          const filtered = (data.data || []).filter(
+            (doc) => doc.department && doc.department._id === formData.department
+          );
+          setAvailableDoctors(filtered);
           setLoadingDoctors(false);
         })
         .catch(err => {
@@ -59,6 +65,7 @@ function Appointment({ reverseLayout }) {
     }
   }, [formData.department]);
 
+  // 🔹 التغيير في الفورم
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -71,6 +78,7 @@ function Appointment({ reverseLayout }) {
     }
   };
 
+  // 🔹 إرسال البيانات
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -89,7 +97,7 @@ function Appointment({ reverseLayout }) {
     }
 
     try {
-      const response = await fetch('https://backend-itiddoctor-395g.vercel.app/api/appointments', {
+      const response = await fetch('http://localhost:5000/api/appointments', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -121,6 +129,7 @@ function Appointment({ reverseLayout }) {
     }
   };
 
+  // 🔹 Loading الأقسام
   if (loadingDepartments) {
     return (
       <div className="container p-4 mx-auto">
@@ -143,11 +152,11 @@ function Appointment({ reverseLayout }) {
             reverseLayout ? "md:flex-row-reverse" : "md:flex-row"
           }`}
         >
+          {/* ================== الفورم ================== */}
           <div className="w-full lg:w-1/2">
             <form className="space-y-6" onSubmit={handleSubmit}>
-
-              {/* باقي الفورم زي ما هو */}
-
+              
+              {/* Name + Phone */}
               <div className="flex flex-col gap-4 lg:flex-row">
                 <div className="w-full lg:w-1/2">
                   <label className="block pb-2 text-[16px] font-medium text-text_color">
@@ -178,6 +187,7 @@ function Appointment({ reverseLayout }) {
                 </div>
               </div>
 
+              {/* Medical Record */}
               <div>
                 <label className="block pb-2 text-[16px] font-medium text-text_color">
                   {t("appointment.form.medical_record")}
@@ -192,6 +202,7 @@ function Appointment({ reverseLayout }) {
                 />
               </div>
 
+              {/* Date + Time */}
               <div className="flex flex-col gap-4 lg:flex-row">
                 <div className="w-full lg:w-1/2">
                   <label className="block pb-2 text-[16px] font-medium text-text_color">
@@ -219,6 +230,7 @@ function Appointment({ reverseLayout }) {
                 </div>
               </div>
 
+              {/* Reason */}
               <div>
                 <label className="block pb-2 text-[16px] font-medium text-text_color">
                   {t("appointment.form.reason_for_visit")}
@@ -240,6 +252,7 @@ function Appointment({ reverseLayout }) {
                 </div>
               </div>
 
+              {/* Departments */}
               <div>
                 <label className="block pb-2 text-[16px] font-medium text-text_color">
                   {t("appointment.form.department")}
@@ -255,16 +268,17 @@ function Appointment({ reverseLayout }) {
                         checked={formData.department === dept._id}
                         onChange={handleChange}
                       />
-                      {dept.title}
+                      {dept.translations?.[currentLang]?.title || dept.translations?.en?.title}
                     </label>
                   ))}
                 </div>
               </div>
 
+              {/* Doctors */}
               {formData.department && (
                 <div>
                   <label className="block pb-2 text-[16px] font-medium text-text_color">
-                    Select Doctor
+                    {t("appointment.form.select_doctor")}
                   </label>
                   {loadingDoctors ? (
                     <p>Loading doctors...</p>
@@ -276,10 +290,10 @@ function Appointment({ reverseLayout }) {
                       onChange={handleChange}
                       required
                     >
-                      <option value="">Select a doctor</option>
+                      <option value="">{t("appointment.form.select_doctor")}</option>
                       {availableDoctors.map((doctor) => (
                         <option key={doctor._id} value={doctor._id}>
-                          {doctor.title}
+                          {doctor.translations?.[currentLang]?.name || doctor.translations?.en?.name}
                         </option>
                       ))}
                     </select>
@@ -288,11 +302,12 @@ function Appointment({ reverseLayout }) {
               )}
 
               <button type="submit" className="butt">
-                Submit
+                {t("appointment.form.submit")}
               </button>
             </form>
           </div>
 
+          {/* ================== الأنيميشن ================== */}
           <div className="flex justify-center w-full mt-10 lg:w-1/2 md:mt-0">
             <Lottie
               animationData={Appointment_anm}
@@ -307,4 +322,3 @@ function Appointment({ reverseLayout }) {
 }
 
 export default Appointment;
-
