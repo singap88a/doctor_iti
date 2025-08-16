@@ -1179,7 +1179,23 @@
   "auth": {
     "forbidden": "You don't have permission to perform this action"
   
-},
+},  "doctors": {
+    "hero": {
+      "title": "Our Expert Doctors",
+      "description": "Meet our team of highly qualified medical professionals"
+    },
+    "all": "All",
+    "loading": "Loading...",
+    "fetch_error": "Failed to load data",
+    "no_doctors_found": "No doctors found",
+    "contact_info": "Contact Info",
+    "working_hours": "Working Hours",
+    "qualifications": "Qualifications",
+    "experience": "Experience",
+    "awards": "Awards & Achievements",
+    "visit_profile": "Visit profile on",
+    "doctor_not_found": "Doctor not found"
+  },
  
   "doctors_management": "Doctors Management",
   "add_new_doctor": "Add New Doctor",

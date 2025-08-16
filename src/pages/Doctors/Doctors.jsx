@@ -19,12 +19,12 @@ function Doctors() {
         setLoading(true);
         
         // Fetch departments
-        const deptResponse = await fetch('http://localhost:5000/api/departments');
+        const deptResponse = await fetch('https://backend-itiddoctor-395g.vercel.app/api/departments');
         if (!deptResponse.ok) throw new Error('Failed to fetch departments');
         const deptData = await deptResponse.json();
         
         // Fetch doctors
-        const docResponse = await fetch('http://localhost:5000/api/doctors');
+        const docResponse = await fetch('https://backend-itiddoctor-395g.vercel.app/api/doctors');
         if (!docResponse.ok) throw new Error('Failed to fetch doctors');
         const docData = await docResponse.json();
 

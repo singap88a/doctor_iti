@@ -83,8 +83,8 @@ const DoctorManagement = () => {
         const headers = { Authorization: `Bearer ${token}` };
 
         const [doctorsRes, departmentsRes] = await Promise.all([
-          axios.get('http://localhost:5000/api/doctors', { headers }),
-          axios.get('http://localhost:5000/api/departments', { headers })
+          axios.get('https://backend-itiddoctor-395g.vercel.app/api/doctors', { headers }),
+          axios.get('https://backend-itiddoctor-395g.vercel.app/api/departments', { headers })
         ]);
 
         setDoctors(doctorsRes.data.data);
@@ -262,16 +262,16 @@ const DoctorManagement = () => {
 
       if (currentDoctorId) {
         // Update existing doctor
-        await axios.put(`http://localhost:5000/api/doctors/${currentDoctorId}`, formData, { headers });
+        await axios.put(`https://backend-itiddoctor-395g.vercel.app/api/doctors/${currentDoctorId}`, formData, { headers });
         toast.success(t('doctor_updated_successfully'));
       } else {
         // Create new doctor
-        await axios.post('http://localhost:5000/api/doctors', formData, { headers });
+        await axios.post('https://backend-itiddoctor-395g.vercel.app/api/doctors', formData, { headers });
         toast.success(t('doctor_created_successfully'));
       }
 
       // Refresh data
-      const res = await axios.get('http://localhost:5000/api/doctors', { headers });
+      const res = await axios.get('https://backend-itiddoctor-395g.vercel.app/api/doctors', { headers });
       setDoctors(res.data.data);
       resetForm();
     } catch (error) {
@@ -286,11 +286,11 @@ const DoctorManagement = () => {
       const token = localStorage.getItem('token');
       const headers = { Authorization: `Bearer ${token}` };
 
-      await axios.delete(`http://localhost:5000/api/doctors/${currentDoctorId}`, { headers });
+      await axios.delete(`https://backend-itiddoctor-395g.vercel.app/api/doctors/${currentDoctorId}`, { headers });
       toast.success(t('doctor_deleted_successfully'));
 
       // Refresh data
-      const res = await axios.get('http://localhost:5000/api/doctors', { headers });
+      const res = await axios.get('https://backend-itiddoctor-395g.vercel.app/api/doctors', { headers });
       setDoctors(res.data.data);
       closeDeleteModal();
     } catch (error) {

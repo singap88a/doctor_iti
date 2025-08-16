@@ -11,7 +11,7 @@ const Departments = memo(() => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:5000/api/departments")
+    fetch("https://backend-itiddoctor-395g.vercel.app/api/departments")
       .then((res) => res.json())
       .then((data) => {
         setDepartments(data.data);

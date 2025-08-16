@@ -16,7 +16,7 @@ function DoctorDetails() {
     const fetchDoctor = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`http://localhost:5000/api/doctors/${id}?lang=${i18n.language}`);
+        const response = await fetch(`https://backend-itiddoctor-395g.vercel.app/api/doctors/${id}?lang=${i18n.language}`);
         
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
