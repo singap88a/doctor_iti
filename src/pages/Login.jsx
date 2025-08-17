@@ -31,9 +31,9 @@ export default function Login() {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
-      <div className="p-8 bg-white rounded-lg shadow-lg w-96">
-        <h2 className="mb-6 text-2xl font-bold text-center">Login</h2>
+    <div className="flex items-center justify-center h-screen bg-gradient-to-b from-[#7fb8f4] to-white">
+      <div className="p-8 shadow-text_color shadow-2xl text-text_color bg-gradient-to-b from-[#7fb8f4] to-white rounded-lg shadow-lg w-96">
+        <h2 className="mb-6  text-3xl font-bold text-center">Login</h2>
 
         {error && (
           <div className="p-2 mb-4 text-sm text-red-600 bg-red-100 rounded">
@@ -43,9 +43,10 @@ export default function Login() {
 
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
-            <label className="block mb-1 text-sm">Email</label>
+            <label className="block mb-1 text-sm font-bold">Email</label>
             <input
               type="email"
+              placeholder="Enter your email"
               className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -54,9 +55,10 @@ export default function Login() {
           </div>
 
           <div>
-            <label className="block mb-1 text-sm">Password</label>
+            <label className="block mb-1 font-bold text-sm">Password</label>
             <input
               type="password"
+              placeholder="Enter your password"
               className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -66,7 +68,7 @@ export default function Login() {
 
           <button
             type="submit"
-            className="w-full py-2 text-white transition bg-blue-500 rounded hover:bg-blue-600"
+            className="w-full py-2 text-white butt transition rounded hover:bg-blue-600"
           >
             Login
           </button>
