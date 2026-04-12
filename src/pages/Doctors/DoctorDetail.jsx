@@ -143,6 +143,17 @@ function DoctorDetails() {
 
           {/* Right Section */}
           <div className="w-full p-4 rounded-lg lg:w-1/2">
+            {/* Biography */}
+            <div className="mb-8">
+              <h3 className="mb-4 text-2xl font-bold text-text_color border-b-2 border-secondary pb-2 w-fit">
+                <i className="mr-2 fa-solid fa-user-doctor text-secondary"></i>
+                {t('doctors.biography', { defaultValue: 'Biography' })}
+              </h3>
+              <p className="text-lg leading-relaxed text-gray-700 whitespace-pre-line">
+                {translation.bio}
+              </p>
+            </div>
+
             {/* Qualifications */}
             <div className="mb-6">
               <h3 className="mb-2 text-xl font-bold text-text_color">
